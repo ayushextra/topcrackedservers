@@ -1,58 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Lifesteal Servers</title>
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Best Minecraft Cracked Servers — Lifesteal</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
-
-body{
-font-family:Arial;
-background:#020617;
-color:white;
-text-align:center;
-padding-top:120px;
+:root{
+  --grass:#4CAF50;--grass-bright:#6FCF3F;--grass-dark:#2d6a2f;
+  --gold:#FFD700;--bg:#111;--card:#1c1c1c;--border:#2a2a2a;
+  --text:#e8e8e8;--muted:#888;
+  --accent:#e74c3c;--accent-dark:#7a1c1c;
+  --px:'Press Start 2P',monospace;--vt:'VT323',monospace;--body:'Outfit',sans-serif;
 }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px),
+    repeating-linear-gradient(90deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px);
+  background-size:32px 32px;}
 
-h1{
-color:#ef4444;
-}
+nav{position:sticky;top:0;z-index:999;background:rgba(10,10,10,.97);border-bottom:3px solid var(--accent-dark);backdrop-filter:blur(10px);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-family:var(--px);font-size:9px;color:var(--grass-bright);text-shadow:2px 2px 0 var(--grass-dark);text-decoration:none;line-height:1.7;}
+.nav-logo span{color:var(--gold);text-shadow:2px 2px 0 #7a6000;}
+.nav-links{display:flex;gap:6px;}
+.nav-links a{font-family:var(--px);font-size:7px;padding:8px 10px;border:2px solid transparent;border-radius:2px;text-decoration:none;color:var(--muted);transition:all .15s;}
+.nav-links a:hover{color:#fff;border-color:var(--accent);background:rgba(231,76,60,.1);}
+.nav-links a.active{color:var(--accent);border-color:var(--accent);background:rgba(231,76,60,.1);}
 
-.box{
-background:#1e293b;
-padding:40px;
-margin:40px auto;
-width:300px;
-border-radius:12px;
-font-size:22px;
-animation:pulse 2s infinite;
-}
+.page-hero{position:relative;text-align:center;padding:50px 20px 44px;background:linear-gradient(180deg,#1a0505 0%,#150a0a 60%,var(--bg) 100%);overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:6px;background:repeating-linear-gradient(90deg,var(--accent) 0,var(--accent) 16px,#c0392b 16px,#c0392b 32px,var(--accent-dark) 32px,var(--accent-dark) 48px);}
+.page-hero-icon{font-size:44px;display:block;margin-bottom:14px;animation:pulse 2s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(231,76,60,.6));}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+.page-hero h1{font-family:var(--px);font-size:clamp(13px,3vw,22px);color:var(--accent);text-shadow:4px 4px 0 var(--accent-dark);margin-bottom:8px;}
+.page-hero p{font-family:var(--vt);font-size:21px;color:var(--muted);}
 
-@keyframes pulse{
-0%{transform:scale(1);}
-50%{transform:scale(1.05);}
-100%{transform:scale(1);}
-}
+.coming-soon{flex:1;display:flex;align-items:center;justify-content:center;padding:60px 20px;position:relative;z-index:1;}
+.cs-box{text-align:center;max-width:500px;padding:48px 40px;background:var(--card);border:2px solid var(--accent-dark);border-radius:6px;box-shadow:0 0 40px rgba(231,76,60,.1);}
+.cs-icon{font-size:54px;display:block;margin-bottom:20px;animation:spin 4s linear infinite;}
+@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.cs-title{font-family:var(--px);font-size:13px;color:var(--accent);margin-bottom:14px;line-height:1.6;}
+.cs-sub{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:24px;}
+.cs-back{font-family:var(--px);font-size:7px;padding:12px 20px;background:var(--accent-dark);color:var(--accent);border:2px solid var(--accent);border-radius:2px;text-decoration:none;display:inline-block;transition:all .15s;}
+.cs-back:hover{background:var(--accent);color:#fff;}
 
-a{
-color:#22c55e;
-text-decoration:none;
-font-size:18px;
-}
-
+footer{text-align:center;padding:24px 20px;border-top:4px solid;border-image:repeating-linear-gradient(90deg,var(--accent) 0,var(--accent) 16px,#c0392b 16px,#c0392b 32px,var(--accent-dark) 32px,var(--accent-dark) 48px) 1;font-family:var(--px);font-size:7px;color:var(--muted);letter-spacing:1px;}
+footer a{color:var(--accent);text-decoration:none;}
 </style>
 </head>
-
 <body>
+<nav>
+  <a class="nav-logo" href="index.html">Best Minecraft<br/><span>Cracked Servers</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="lifesteal.html" class="active">Lifesteal</a>
+    <a href="pvp.html">PvP</a>
+    <a href="survival.html">Survival</a>
+  </div>
+</nav>
 
-<h1>❤️ Lifesteal Servers</h1>
-
-<div class="box">
-🚧 Coming Soon
+<div class="page-hero">
+  <span class="page-hero-icon">🩸</span>
+  <h1>Lifesteal Servers</h1>
+  <p>Steal hearts — or lose them forever</p>
 </div>
 
-<br>
+<div class="coming-soon">
+  <div class="cs-box">
+    <span class="cs-icon">⚙️</span>
+    <div class="cs-title">Coming Soon!</div>
+    <p class="cs-sub">Lifesteal servers are being verified and added. Check back soon — only legit cracked servers will be listed here!</p>
+    <a href="index.html" class="cs-back">← Back to Home</a>
+  </div>
+</div>
 
-<a href="index.html">⬅ Back</a>
-
+<footer>
+  &copy; 2025 Best Minecraft Cracked Servers &nbsp;|&nbsp;
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="pvp.html">PvP</a> &nbsp;|&nbsp;
+  <a href="survival.html">Survival</a>
+</footer>
 </body>
 </html>
