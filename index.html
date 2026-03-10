@@ -17,6 +17,21 @@ body{
   align-items:center;
   min-height:100vh;
   justify-content:center;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* ===== Animated Background Squares ===== */
+.square{
+  position:absolute;
+  width:20px;
+  height:20px;
+  background:rgba(255,255,255,0.05);
+  animation: float 10s linear infinite;
+}
+
+@keyframes float{
+  0% {transform: translateY(0) rotate(0deg);}
+  100% {transform: translateY(-1000px) rotate(360deg);}
 }
 
 /* ===== Title ===== */
@@ -40,10 +55,12 @@ h1{
   flex-direction:column;
   align-items:center;
   gap:25px;
+  z-index:1;
+  position:relative;
 }
 
 .button{
-  width:280px;
+  width:300px;
   padding:18px;
   font-size:22px;
   border:none;
@@ -55,6 +72,10 @@ h1{
   text-align:center;
   background: linear-gradient(45deg,#22c55e,#16a34a);
   box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
 }
 
 .button:hover{
@@ -77,6 +98,7 @@ h1{
   cursor:pointer;
   font-weight:bold;
   transition:0.3s;
+  z-index:2;
 }
 
 .settings:hover{
@@ -90,7 +112,7 @@ h1{
   right:0;
   background:#1e293b;
   border-radius:10px;
-  min-width:150px;
+  min-width:180px;
   box-shadow:0 5px 15px rgba(0,0,0,0.4);
   flex-direction:column;
   z-index:100;
@@ -115,10 +137,17 @@ h1{
   width:50px;
   cursor:pointer;
   transition:0.3s;
+  z-index:2;
 }
 
 .discord:hover{
   transform: scale(1.2);
+}
+
+/* ===== Settings Option Inputs ===== */
+input[type=range]{
+  width:150px;
+  margin:5px 10px;
 }
 
 </style>
@@ -126,20 +155,50 @@ h1{
 
 <body>
 
+<!-- Animated Squares Background -->
+<script>
+for(let i=0;i<50;i++){
+  let sq=document.createElement('div');
+  sq.className='square';
+  sq.style.left=Math.random()*window.innerWidth+'px';
+  sq.style.top=Math.random()*window.innerHeight+'px';
+  sq.style.width=20+Math.random()*30+'px';
+  sq.style.height=20+Math.random()*30+'px';
+  sq.style.animationDuration=5+Math.random()*10+'s';
+  document.body.appendChild(sq);
+}
+</script>
+
 <h1>Minecraft Cracked Servers</h1>
 
 <div class="container">
-  <button class="button lifesteal" onclick="alert('Coming Soon 🚧')">Lifesteal Servers</button>
-  <button class="button survival" onclick="window.location.href='survival.html'">Survival Servers</button>
-  <button class="button pvp" onclick="alert('Coming Soon 🚧')">PvP Servers</button>
+  <button class="button lifesteal" onclick="alert('Coming Soon 🚧')">
+    ❤️ Lifesteal
+  </button>
+  <button class="button survival" onclick="window.location.href='survival.html'">
+    🌲 Survival
+  </button>
+  <button class="button pvp" onclick="alert('Coming Soon 🚧')">
+    ⚔️ PvP
+  </button>
 </div>
 
 <!-- Settings Button -->
 <div class="settings" onclick="toggleDropdown()">⚙️ Settings
   <div class="dropdown" id="settingsDropdown">
-    <a href="#">Option 1</a>
-    <a href="#">Option 2</a>
-    <a href="#">Option 3</a>
+    <label style="padding:10px;color:white;display:block;">Theme:
+      <select id="themeSelect">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </select>
+    </label>
+    <label style="padding:10px;color:white;display:block;">Text Size:
+      <select id="textSizeSelect">
+        <option value="small">Small</option>
+        <option value="medium" selected>Medium</option>
+        <option value="large">Large</option>
+      </select>
+    </label>
   </div>
 </div>
 
@@ -149,19 +208,36 @@ h1{
 </a>
 
 <script>
+// Dropdown toggle
 function toggleDropdown(){
   const dropdown = document.getElementById('settingsDropdown');
-  dropdown.style.display = (dropdown.style.display === 'flex') ? 'none' : 'flex';
+  dropdown.style.display = (dropdown.style.display==='flex')?'none':'flex';
 }
 
-// Click outside to close dropdown
-window.onclick = function(event){
+// Close dropdown if clicked outside
+window.onclick=function(event){
   const dropdown = document.getElementById('settingsDropdown');
   const settingsBtn = document.querySelector('.settings');
   if(!settingsBtn.contains(event.target)){
-    dropdown.style.display = 'none';
+    dropdown.style.display='none';
   }
 }
+
+// Theme and Text Size Change
+document.getElementById('themeSelect').addEventListener('change', function(){
+  if(this.value==='light'){
+    document.body.style.background='linear-gradient(135deg,#f0f0f0,#c0c0c0)';
+    document.body.style.color='black';
+  } else{
+    document.body.style.background='linear-gradient(135deg,#0f172a,#020617)';
+    document.body.style.color='white';
+  }
+});
+
+document.getElementById('textSizeSelect').addEventListener('change', function(){
+  const sizeMap={'small':'30px','medium':'50px','large':'70px'};
+  document.querySelector('h1').style.fontSize=sizeMap[this.value];
+});
 </script>
 
 </body>
