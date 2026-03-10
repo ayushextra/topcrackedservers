@@ -19,71 +19,58 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
   background-image:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px),
     repeating-linear-gradient(90deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px);
   background-size:32px 32px;}
-
-/* ── NAV ── */
 nav{position:sticky;top:0;z-index:999;background:rgba(10,10,10,.97);
   border-bottom:3px solid var(--grass-dark);backdrop-filter:blur(10px);
-  padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+  padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px;}
 .nav-logo{font-family:var(--px);font-size:9px;color:var(--grass-bright);
-  text-shadow:2px 2px 0 var(--grass-dark);text-decoration:none;line-height:1.7;}
-.nav-logo span{color:var(--gold);text-shadow:2px 2px 0 #7a6000;}
-.nav-links{display:flex;gap:6px;align-items:center;}
-.nav-links a{font-family:var(--px);font-size:7px;padding:8px 10px;
-  border:2px solid transparent;border-radius:2px;text-decoration:none;
-  color:var(--muted);transition:all .15s;}
+  text-shadow:2px 2px 0 var(--grass-dark);text-decoration:none;line-height:1.7;flex-shrink:0;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:5px;align-items:center;flex-wrap:wrap;}
+.nav-links a{font-family:var(--px);font-size:7px;padding:7px 9px;
+  border:2px solid transparent;border-radius:2px;text-decoration:none;color:var(--muted);transition:all .15s;}
 .nav-links a:hover,.nav-links a.active{color:var(--grass-bright);border-color:var(--grass);background:rgba(76,175,80,.1);}
-.nav-submit-btn{font-family:var(--px);font-size:7px;padding:8px 12px;
-  border:2px solid var(--gold);border-radius:2px;background:rgba(255,215,0,.1);
-  color:var(--gold);cursor:pointer;transition:all .15s;}
-.nav-submit-btn:hover{background:var(--gold);color:#000;}
-
-/* ── HERO ── */
+.nav-add-btn{font-family:var(--px);font-size:7px;padding:7px 12px;
+  border:2px solid var(--gold);border-radius:2px;background:rgba(255,215,0,.08);
+  color:var(--gold);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.nav-add-btn:hover{background:var(--gold);color:#000;}
 .hero{position:relative;text-align:center;padding:70px 20px 55px;
   background:linear-gradient(180deg,#071407 0%,#0f200f 55%,var(--bg) 100%);overflow:hidden;}
 .hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:8px;
   background:repeating-linear-gradient(90deg,var(--grass) 0,var(--grass) 16px,
     var(--grass-bright) 16px,var(--grass-bright) 32px,var(--grass-dark) 32px,var(--grass-dark) 48px);}
 .hero-icon{font-size:52px;display:block;margin-bottom:18px;
-  animation:float 3s ease-in-out infinite;
-  filter:drop-shadow(0 0 24px rgba(111,207,63,.5));}
+  animation:float 3s ease-in-out infinite;filter:drop-shadow(0 0 24px rgba(111,207,63,.5));}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .hero h1{font-family:var(--px);font-size:clamp(12px,2.6vw,20px);color:var(--grass-bright);
-  text-shadow:4px 4px 0 var(--grass-dark),0 0 40px rgba(111,207,63,.3);
-  margin-bottom:14px;line-height:1.8;}
+  text-shadow:4px 4px 0 var(--grass-dark);margin-bottom:14px;line-height:1.8;}
 .hero p{font-family:var(--vt);font-size:22px;color:var(--muted);margin-bottom:22px;}
 .hero-badges{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;}
 .hbadge{font-family:var(--px);font-size:7px;padding:7px 12px;border-radius:2px;border:2px solid;}
 .hbadge.g{color:var(--grass-bright);border-color:var(--grass-dark);background:rgba(76,175,80,.1);}
 .hbadge.r{color:var(--lifesteal);border-color:var(--lifesteal);background:rgba(231,76,60,.1);}
 .hbadge.o{color:var(--pvp);border-color:var(--pvp);background:rgba(230,126,34,.1);}
-
 .stats{display:flex;justify-content:center;max-width:640px;margin:32px auto 0;
   border:2px solid var(--border);border-radius:4px;overflow:hidden;}
 .stat{flex:1;padding:18px 10px;text-align:center;border-right:2px solid var(--border);}
 .stat:last-child{border-right:none;}
 .stat-n{font-family:var(--px);font-size:14px;color:var(--grass-bright);display:block;}
 .stat-l{font-family:var(--vt);font-size:17px;color:var(--muted);margin-top:4px;}
-
-/* ── MAIN ── */
 main{max-width:1100px;margin:0 auto;padding:50px 20px 80px;position:relative;z-index:1;}
 .sec-title{font-family:var(--px);font-size:10px;color:var(--muted);
   letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;
   display:flex;align-items:center;gap:12px;}
 .sec-title::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--border),transparent);}
-
-/* ── CATEGORY CARDS ── */
-.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:60px;}
+.cat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-bottom:60px;}
 .cat-card{border:2px solid var(--border);border-radius:4px;overflow:hidden;
   text-decoration:none;color:var(--text);
   transition:transform .2s,border-color .2s,box-shadow .2s;
   background:var(--card);display:block;animation:fadeUp .4s ease both;}
 .cat-card:hover{transform:translateY(-6px);}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-.cat-card:nth-child(1){animation-delay:.05s}
-.cat-card:nth-child(2){animation-delay:.1s}
-.cat-card:nth-child(3){animation-delay:.15s}
-.cat-banner{height:110px;display:flex;align-items:center;justify-content:center;
-  font-size:50px;position:relative;overflow:hidden;}
+.cat-card:nth-child(1){animation-delay:.05s}.cat-card:nth-child(2){animation-delay:.1s}
+.cat-card:nth-child(3){animation-delay:.15s}.cat-card:nth-child(4){animation-delay:.2s}
+.cat-banner{height:100px;display:flex;align-items:center;justify-content:center;
+  font-size:44px;position:relative;overflow:hidden;}
 .cat-banner::before{content:'';position:absolute;inset:0;opacity:.18;}
 .cat-card.lifesteal .cat-banner{background:linear-gradient(135deg,#2a0808,#1a0a0a);}
 .cat-card.lifesteal .cat-banner::before{background:radial-gradient(circle,var(--lifesteal),transparent);}
@@ -97,197 +84,145 @@ main{max-width:1100px;margin:0 auto;padding:50px 20px 80px;position:relative;z-i
 .cat-card.survival .cat-banner::before{background:radial-gradient(circle,var(--survival),transparent);}
 .cat-card.survival{border-color:#153015;}
 .cat-card.survival:hover{border-color:var(--survival);box-shadow:0 8px 32px rgba(39,174,96,.2);}
-.cat-body{padding:18px;}
-.cat-name{font-family:var(--px);font-size:11px;margin-bottom:8px;}
+.cat-card.others .cat-banner{background:linear-gradient(135deg,#1a1a1a,#111);}
+.cat-card.others .cat-banner::before{background:radial-gradient(circle,#666,transparent);}
+.cat-card.others{border-color:#333;}
+.cat-card.others:hover{border-color:#777;box-shadow:0 8px 32px rgba(120,120,120,.15);}
+.cat-body{padding:16px;}
+.cat-name{font-family:var(--px);font-size:10px;margin-bottom:8px;}
 .cat-card.lifesteal .cat-name{color:var(--lifesteal);}
 .cat-card.pvp .cat-name{color:var(--pvp);}
 .cat-card.survival .cat-name{color:var(--survival);}
-.cat-desc{font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:14px;}
+.cat-card.others .cat-name{color:#aaa;}
+.cat-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:12px;}
 .cat-footer{display:flex;align-items:center;justify-content:space-between;}
-.cat-count{font-family:var(--vt);font-size:17px;color:var(--muted);}
-.cat-btn{font-family:var(--px);font-size:7px;padding:8px 14px;
-  border:2px solid;border-radius:2px;cursor:pointer;text-decoration:none;transition:all .15s;}
+.cat-count{font-family:var(--vt);font-size:16px;color:var(--muted);}
+.cat-btn{font-family:var(--px);font-size:6px;padding:7px 12px;border:2px solid;border-radius:2px;text-decoration:none;transition:all .15s;}
 .cat-card.lifesteal .cat-btn{color:var(--lifesteal);border-color:var(--lifesteal);}
 .cat-card.lifesteal .cat-btn:hover{background:var(--lifesteal);color:#fff;}
 .cat-card.pvp .cat-btn{color:var(--pvp);border-color:var(--pvp);}
 .cat-card.pvp .cat-btn:hover{background:var(--pvp);color:#fff;}
 .cat-card.survival .cat-btn{color:var(--survival);border-color:var(--survival);}
 .cat-card.survival .cat-btn:hover{background:var(--survival);color:#fff;}
-
-/* ── SUBMITTED SERVERS GRID ── */
-.server-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
-.empty-state{text-align:center;padding:50px 20px;
-  border:2px dashed var(--border);border-radius:6px;color:var(--muted);}
-.empty-icon{font-size:40px;display:block;margin-bottom:14px;opacity:.4;}
-.empty-text{font-family:var(--px);font-size:8px;line-height:1.8;}
-
-/* ── SERVER CARD ── */
+.cat-card.others .cat-btn{color:#aaa;border-color:#555;}
+.cat-card.others .cat-btn:hover{background:#555;color:#fff;}
+/* server grid */
+.server-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;}
+.empty-state{text-align:center;padding:48px 20px;border:2px dashed var(--border);border-radius:6px;grid-column:1/-1;}
+.empty-icon{font-size:38px;display:block;margin-bottom:12px;opacity:.4;}
+.empty-text{font-family:var(--px);font-size:7px;color:var(--muted);line-height:2.2;}
+.loading-state{text-align:center;padding:40px;grid-column:1/-1;font-family:var(--px);font-size:8px;color:var(--muted);}
+.loading-state span{display:inline-block;animation:pulse 1s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+/* server card */
 .srv-card{background:var(--card);border:2px solid var(--border);border-radius:4px;
-  overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;
-  animation:fadeUp .4s ease both;position:relative;}
-.srv-card:hover{transform:translateY(-4px);border-color:var(--grass);
-  box-shadow:0 8px 28px rgba(111,207,63,.12);}
-.srv-card .top-bar{height:4px;width:100%;}
-.srv-head{padding:16px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
-.srv-logo{width:52px;height:52px;border-radius:4px;border:2px solid #333;
-  background:#222;font-size:26px;display:flex;align-items:center;
-  justify-content:center;flex-shrink:0;overflow:hidden;}
+  overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;animation:fadeUp .4s ease both;}
+.srv-card:hover{transform:translateY(-4px);border-color:var(--grass);box-shadow:0 8px 28px rgba(111,207,63,.12);}
+.top-bar{height:4px;}
+.srv-head{padding:14px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
+.srv-logo{width:50px;height:50px;border-radius:4px;border:2px solid #333;background:#222;
+  font-size:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
 .srv-logo img{width:100%;height:100%;object-fit:cover;border-radius:2px;}
 .srv-info{flex:1;min-width:0;}
 .srv-name{font-family:var(--px);font-size:9px;color:#fff;margin-bottom:5px;
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .srv-tags{display:flex;gap:4px;flex-wrap:wrap;}
 .tag{font-family:var(--px);font-size:5px;padding:2px 6px;border-radius:1px;border:1px solid;}
-.tag.lifesteal{color:var(--lifesteal);border-color:var(--lifesteal);background:rgba(231,76,60,.1);}
-.tag.pvp{color:var(--pvp);border-color:var(--pvp);background:rgba(230,126,34,.1);}
-.tag.survival{color:var(--survival);border-color:var(--survival);background:rgba(39,174,96,.1);}
-.tag.bedwars{color:#5bc8ff;border-color:#3a8aaa;background:rgba(91,200,255,.08);}
-.tag.skywars{color:#b39ddb;border-color:#7e57c2;background:rgba(126,87,194,.08);}
-.tag.factions{color:#ff8a65;border-color:#e64a19;background:rgba(230,74,25,.08);}
+.tag.gm-lifesteal{color:var(--lifesteal);border-color:var(--lifesteal);background:rgba(231,76,60,.1);}
+.tag.gm-pvp{color:var(--pvp);border-color:var(--pvp);background:rgba(230,126,34,.1);}
+.tag.gm-survival{color:var(--survival);border-color:var(--survival);background:rgba(39,174,96,.1);}
+.tag.gm-others{color:#aaa;border-color:#555;background:rgba(100,100,100,.1);}
 .tag.cracked{color:var(--gold);border-color:var(--gold);background:rgba(255,215,0,.08);}
+.tag.platform{color:#5bc8ff;border-color:#3a8aaa;background:rgba(91,200,255,.08);}
 .srv-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
 .srv-dot.on{background:var(--grass-bright);box-shadow:0 0 8px var(--grass-bright);animation:blink 2s ease-in-out infinite;}
 .srv-dot.off{background:#e74c3c;}
 .srv-dot.checking{background:var(--gold);animation:blink 1s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.srv-body{padding:14px 16px;}
-.srv-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:12px;}
-.srv-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
-.meta{background:#161616;border:1px solid var(--border);border-radius:2px;padding:8px 10px;}
-.meta-l{font-family:var(--px);font-size:5px;color:var(--muted);
-  letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
-.meta-v{font-family:var(--vt);font-size:18px;}
+.srv-body{padding:12px 14px;}
+.srv-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:10px;}
+.srv-meta{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.meta{background:#161616;border:1px solid var(--border);border-radius:2px;padding:7px 9px;}
+.meta-l{font-family:var(--px);font-size:5px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.meta-v{font-family:var(--vt);font-size:17px;}
 .meta-v.green{color:var(--grass-bright);}
 .meta-v.red{color:#e74c3c;}
-.meta-v.ip{font-size:14px;color:var(--grass-bright);}
-.srv-foot{padding:10px 16px;background:#161616;border-top:1px solid var(--border);
-  display:flex;align-items:center;gap:10px;}
-.copy-btn{font-family:var(--px);font-size:6px;padding:7px 12px;
+.meta-v.ip{font-size:13px;color:var(--grass-bright);}
+.srv-foot{padding:9px 14px;background:#161616;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.copy-btn{font-family:var(--px);font-size:6px;padding:7px 11px;
   background:var(--grass-dark);color:var(--grass-bright);
   border:2px solid var(--grass);border-radius:2px;cursor:pointer;transition:all .15s;}
 .copy-btn:hover{background:var(--grass);color:#000;}
 .copy-btn.copied{background:var(--gold);color:#000;border-color:var(--gold);}
-.del-btn{font-family:var(--px);font-size:5px;padding:7px 10px;
-  background:transparent;color:#555;border:2px solid #333;
-  border-radius:2px;cursor:pointer;transition:all .15s;margin-left:auto;}
-.del-btn:hover{border-color:#e74c3c;color:#e74c3c;}
 .pbar-wrap{flex:1;}
-.pbar-top{display:flex;justify-content:space-between;
-  font-family:var(--px);font-size:5px;color:var(--muted);margin-bottom:3px;}
+.pbar-top{display:flex;justify-content:space-between;font-family:var(--px);font-size:5px;color:var(--muted);margin-bottom:3px;}
 .pbar{height:5px;background:#2a2a2a;border-radius:1px;overflow:hidden;}
-.pbar-fill{height:100%;background:linear-gradient(90deg,var(--grass-dark),var(--grass-bright));
-  border-radius:1px;transition:width .8s ease;}
-
-/* ── MODAL OVERLAY ── */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);
-  z-index:9999;display:flex;align-items:center;justify-content:center;
-  padding:20px;opacity:0;pointer-events:none;transition:opacity .25s;}
+.pbar-fill{height:100%;background:linear-gradient(90deg,var(--grass-dark),var(--grass-bright));border-radius:1px;transition:width .8s ease;}
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;
+  display:flex;align-items:center;justify-content:center;padding:20px;
+  opacity:0;pointer-events:none;transition:opacity .25s;}
 .modal-overlay.open{opacity:1;pointer-events:all;}
 .modal{background:#161616;border:3px solid var(--grass-dark);border-radius:6px;
-  width:100%;max-width:580px;max-height:90vh;overflow-y:auto;
+  width:100%;max-width:540px;max-height:90vh;overflow-y:auto;
   transform:translateY(20px);transition:transform .25s;}
 .modal-overlay.open .modal{transform:translateY(0);}
-
-/* shimmer top */
 .modal::before{content:'';display:block;height:4px;
   background:linear-gradient(90deg,var(--grass-dark),var(--grass-bright),var(--gold),var(--grass-bright),var(--grass-dark));
   background-size:200% 100%;animation:shimmer 2.5s linear infinite;}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-.modal-head{padding:24px 24px 16px;display:flex;align-items:center;
-  justify-content:space-between;border-bottom:2px solid var(--border);}
-.modal-title{font-family:var(--px);font-size:10px;color:var(--grass-bright);
-  text-shadow:2px 2px 0 var(--grass-dark);}
-.modal-close{background:none;border:2px solid #444;color:#888;
-  width:32px;height:32px;border-radius:2px;cursor:pointer;
-  font-size:16px;transition:all .15s;display:flex;align-items:center;justify-content:center;}
+.modal-head{padding:20px 22px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--border);}
+.modal-title{font-family:var(--px);font-size:10px;color:var(--grass-bright);text-shadow:2px 2px 0 var(--grass-dark);}
+.modal-close{background:none;border:2px solid #444;color:#888;width:30px;height:30px;
+  border-radius:2px;cursor:pointer;font-size:14px;transition:all .15s;display:flex;align-items:center;justify-content:center;}
 .modal-close:hover{border-color:#e74c3c;color:#e74c3c;}
-
-.modal-body{padding:24px;}
-.form-group{margin-bottom:18px;}
+.modal-body{padding:22px;}
+.form-group{margin-bottom:16px;}
 .form-label{font-family:var(--px);font-size:7px;color:var(--muted);
-  letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:8px;}
-.form-label span{color:#e74c3c;}
-.form-input,.form-textarea,.form-select{
-  width:100%;background:#111;border:2px solid var(--border);
+  letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:7px;}
+.req{color:#e74c3c;}.opt{color:#555;font-size:6px;}
+.form-input,.form-textarea,.form-select{width:100%;background:#111;border:2px solid var(--border);
   border-radius:3px;color:var(--text);font-family:var(--body);font-size:14px;
   padding:10px 12px;outline:none;transition:border-color .15s;}
 .form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--grass);}
-.form-textarea{resize:vertical;min-height:80px;line-height:1.5;}
+.form-textarea{resize:vertical;min-height:76px;line-height:1.5;}
 .form-select{cursor:pointer;appearance:none;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
   background-repeat:no-repeat;background-position:right 12px center;}
 .form-select option{background:#1c1c1c;}
-
-/* gamemode checkboxes */
-.gamemode-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
-.gm-option{display:none;}
-.gm-label{display:flex;align-items:center;justify-content:center;
-  gap:6px;padding:10px 8px;border:2px solid var(--border);
-  border-radius:3px;cursor:pointer;font-family:var(--px);font-size:6px;
-  color:var(--muted);background:#111;transition:all .15s;text-align:center;}
-.gm-label:hover{border-color:#555;color:#ccc;}
-.gm-option:checked + .gm-label{color:#fff;}
-/* per gamemode checked colours */
-.gm-option[value="lifesteal"]:checked + .gm-label{border-color:var(--lifesteal);color:var(--lifesteal);background:rgba(231,76,60,.1);}
-.gm-option[value="pvp"]:checked + .gm-label{border-color:var(--pvp);color:var(--pvp);background:rgba(230,126,34,.1);}
-.gm-option[value="survival"]:checked + .gm-label{border-color:var(--survival);color:var(--survival);background:rgba(39,174,96,.1);}
-.gm-option[value="bedwars"]:checked + .gm-label{border-color:#5bc8ff;color:#5bc8ff;background:rgba(91,200,255,.08);}
-.gm-option[value="skywars"]:checked + .gm-label{border-color:#b39ddb;color:#b39ddb;background:rgba(179,157,219,.08);}
-.gm-option[value="factions"]:checked + .gm-label{border-color:#ff8a65;color:#ff8a65;background:rgba(255,138,101,.08);}
-
-/* logo upload */
-.logo-upload-wrap{display:flex;align-items:center;gap:16px;}
-.logo-preview{width:64px;height:64px;border-radius:4px;border:2px solid var(--border);
-  background:#111;display:flex;align-items:center;justify-content:center;
-  font-size:28px;overflow:hidden;flex-shrink:0;}
-.logo-preview img{width:100%;height:100%;object-fit:cover;border-radius:2px;}
-.logo-upload-btn{font-family:var(--px);font-size:7px;padding:10px 14px;
-  background:#111;color:var(--muted);border:2px solid var(--border);
-  border-radius:2px;cursor:pointer;transition:all .15s;}
-.logo-upload-btn:hover{border-color:var(--grass);color:var(--grass-bright);}
-.logo-hint{font-size:11px;color:var(--muted);margin-top:4px;}
-
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
-
+.logo-upload-wrap{display:flex;align-items:center;gap:16px;}
+.logo-preview{width:60px;height:60px;border-radius:4px;border:2px solid var(--border);
+  background:#111;display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden;flex-shrink:0;}
+.logo-preview img{width:100%;height:100%;object-fit:cover;border-radius:2px;}
+.logo-upload-btn{font-family:var(--px);font-size:7px;padding:9px 13px;background:#111;
+  color:var(--muted);border:2px solid var(--border);border-radius:2px;cursor:pointer;transition:all .15s;}
+.logo-upload-btn:hover{border-color:var(--grass);color:var(--grass-bright);}
+.hint{font-size:11px;color:var(--muted);margin-top:5px;}
+.error-msg{font-family:var(--px);font-size:6px;color:#e74c3c;margin-top:5px;display:none;}
 .form-submit{width:100%;font-family:var(--px);font-size:9px;padding:14px;
-  background:var(--grass-dark);color:var(--grass-bright);
-  border:2px solid var(--grass);border-radius:3px;cursor:pointer;
-  transition:all .15s;margin-top:6px;letter-spacing:1px;}
+  background:var(--grass-dark);color:var(--grass-bright);border:2px solid var(--grass);
+  border-radius:3px;cursor:pointer;transition:all .15s;letter-spacing:1px;margin-top:4px;}
 .form-submit:hover{background:var(--grass);color:#000;}
-
-.error-msg{font-family:var(--px);font-size:7px;color:#e74c3c;
-  margin-top:6px;display:none;}
-
-/* ── FOOTER ── */
+.form-submit:disabled{opacity:.5;cursor:not-allowed;}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--grass-dark);border:2px solid var(--grass);color:var(--grass-bright);
+  font-family:var(--px);font-size:8px;padding:12px 24px;border-radius:3px;
+  z-index:99999;transition:transform .3s;pointer-events:none;}
+.toast.show{transform:translateX(-50%) translateY(0);}
 footer{text-align:center;padding:28px 20px;border-top:4px solid;
-  border-image:repeating-linear-gradient(90deg,
-    var(--grass) 0,var(--grass) 16px,
-    var(--grass-bright) 16px,var(--grass-bright) 32px,
-    var(--grass-dark) 32px,var(--grass-dark) 48px) 1;
+  border-image:repeating-linear-gradient(90deg,var(--grass) 0,var(--grass) 16px,
+    var(--grass-bright) 16px,var(--grass-bright) 32px,var(--grass-dark) 32px,var(--grass-dark) 48px) 1;
   font-family:var(--px);font-size:7px;color:var(--muted);letter-spacing:1px;}
 footer a{color:var(--grass-bright);text-decoration:none;}
-
-/* ── TOAST ── */
-.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);
-  background:var(--grass-dark);border:2px solid var(--grass);
-  color:var(--grass-bright);font-family:var(--px);font-size:8px;
-  padding:12px 24px;border-radius:3px;z-index:99999;
-  transition:transform .3s;pointer-events:none;}
-.toast.show{transform:translateX(-50%) translateY(0);}
-
 @media(max-width:600px){
-  .nav-logo{font-size:7px;}.nav-links a{font-size:6px;padding:6px 7px;}
-  .stats{flex-wrap:wrap;}.stat{min-width:50%;}
-  .row2{grid-template-columns:1fr;}
-  .gamemode-grid{grid-template-columns:repeat(2,1fr);}
-  .server-grid{grid-template-columns:1fr;}
+  .nav-logo{font-size:7px;}.nav-links a{font-size:6px;padding:5px 6px;}
+  .row2{grid-template-columns:1fr;}.server-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="index.html">Best Minecraft<br/><span>Cracked Servers</span></a>
   <div class="nav-links">
@@ -295,11 +230,10 @@ footer a{color:var(--grass-bright);text-decoration:none;}
     <a href="lifesteal.html">Lifesteal</a>
     <a href="pvp.html">PvP</a>
     <a href="survival.html">Survival</a>
-    <button class="nav-submit-btn" onclick="openModal()">+ Add Server</button>
+    <button class="nav-add-btn" onclick="openModal()">+ Add Server</button>
   </div>
 </nav>
 
-<!-- HERO -->
 <div class="hero">
   <span class="hero-icon">⛏️</span>
   <h1>Best Minecraft<br/>Cracked Servers</h1>
@@ -310,71 +244,64 @@ footer a{color:var(--grass-bright);text-decoration:none;}
     <span class="hbadge o">⚔ PvP</span>
   </div>
   <div class="stats">
-    <div class="stat">
-      <span class="stat-n" id="total-count">1</span>
-      <div class="stat-l">Servers Listed</div>
-    </div>
-    <div class="stat">
-      <span class="stat-n" id="online-count" style="font-size:11px">Checking...</span>
-      <div class="stat-l">CrownMC Status</div>
-    </div>
-    <div class="stat">
-      <span class="stat-n">100%</span>
-      <div class="stat-l">Cracked</div>
-    </div>
+    <div class="stat"><span class="stat-n" id="total-count">—</span><div class="stat-l">Servers Listed</div></div>
+    <div class="stat"><span class="stat-n" id="crown-status" style="font-size:11px">Checking...</span><div class="stat-l">CrownMC Status</div></div>
+    <div class="stat"><span class="stat-n">100%</span><div class="stat-l">Cracked</div></div>
   </div>
 </div>
 
-<!-- MAIN -->
 <main>
-
-  <!-- Categories -->
   <div class="sec-title">Browse Categories</div>
   <div class="cat-grid">
     <a href="lifesteal.html" class="cat-card lifesteal">
       <div class="cat-banner">🩸</div>
       <div class="cat-body">
-        <div class="cat-name">Lifesteal SMP</div>
-        <p class="cat-desc">Kill enemies to steal their hearts. Lose all hearts and you are banned. The most intense survival experience.</p>
-        <div class="cat-footer"><span class="cat-count">Coming soon</span><span class="cat-btn">Explore →</span></div>
+        <div class="cat-name">Lifesteal</div>
+        <p class="cat-desc">Steal hearts from enemies. Lose all hearts and get banned!</p>
+        <div class="cat-footer"><span class="cat-count" id="count-lifesteal">— servers</span><span class="cat-btn">Explore →</span></div>
       </div>
     </a>
     <a href="pvp.html" class="cat-card pvp">
       <div class="cat-banner">⚔️</div>
       <div class="cat-body">
-        <div class="cat-name">PvP Servers</div>
-        <p class="cat-desc">Kit PvP, Factions, BedWars, SkyWars and more. Show your skills against players worldwide.</p>
-        <div class="cat-footer"><span class="cat-count">Coming soon</span><span class="cat-btn">Explore →</span></div>
+        <div class="cat-name">PvP</div>
+        <p class="cat-desc">Show your skills in intense player vs player combat.</p>
+        <div class="cat-footer"><span class="cat-count" id="count-pvp">— servers</span><span class="cat-btn">Explore →</span></div>
       </div>
     </a>
     <a href="survival.html" class="cat-card survival">
       <div class="cat-banner">🌲</div>
       <div class="cat-body">
-        <div class="cat-name">Survival Servers</div>
-        <p class="cat-desc">Classic survival with economy, land claiming and active communities. Build your empire.</p>
-        <div class="cat-footer"><span class="cat-count">1 server</span><span class="cat-btn">Explore →</span></div>
+        <div class="cat-name">Survival</div>
+        <p class="cat-desc">Build, explore and survive with an active community.</p>
+        <div class="cat-footer"><span class="cat-count" id="count-survival">— servers</span><span class="cat-btn">Explore →</span></div>
+      </div>
+    </a>
+    <a href="index.html#others" class="cat-card others">
+      <div class="cat-banner">🎮</div>
+      <div class="cat-body">
+        <div class="cat-name">Others</div>
+        <p class="cat-desc">Minigames, SkyBlock, Creative and all other game modes.</p>
+        <div class="cat-footer"><span class="cat-count" id="count-others">— servers</span><span class="cat-btn">View →</span></div>
       </div>
     </a>
   </div>
 
-  <!-- Community Submitted Servers -->
-  <div class="sec-title">
-    Community Servers
-    <button onclick="openModal()" style="font-family:var(--px);font-size:6px;padding:6px 12px;
-      background:rgba(255,215,0,.1);color:var(--gold);border:2px solid var(--gold);
+  <div class="sec-title" id="others">
+    Others / Community Servers
+    <button onclick="openModal()" style="font-family:var(--px);font-size:6px;padding:6px 11px;
+      background:rgba(255,215,0,.08);color:var(--gold);border:2px solid var(--gold);
       border-radius:2px;cursor:pointer;margin-left:auto;transition:all .15s;"
       onmouseover="this.style.background='var(--gold)';this.style.color='#000'"
-      onmouseout="this.style.background='rgba(255,215,0,.1)';this.style.color='var(--gold)'">
-      + Submit Your Server
+      onmouseout="this.style.background='rgba(255,215,0,.08)';this.style.color='var(--gold)'">
+      + Submit Server
     </button>
   </div>
   <div class="server-grid" id="server-grid">
-    <!-- filled by JS -->
+    <div class="loading-state"><span>Loading servers...</span></div>
   </div>
-
 </main>
 
-<!-- FOOTER -->
 <footer>
   &copy; 2025 Best Minecraft Cracked Servers &nbsp;|&nbsp;
   <a href="index.html">Home</a> &nbsp;|&nbsp;
@@ -385,246 +312,214 @@ footer a{color:var(--grass-bright);text-decoration:none;}
 
 <!-- MODAL -->
 <div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
-  <div class="modal" id="modal">
+  <div class="modal">
     <div class="modal-head">
       <div class="modal-title">+ Submit Your Server</div>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-
-      <!-- Server Name -->
       <div class="form-group">
-        <label class="form-label">Server Name <span>*</span></label>
+        <label class="form-label">Server Name <span class="req">*</span></label>
         <input class="form-input" id="f-name" type="text" placeholder="e.g. CrownMC, BloodPvP..." maxlength="40"/>
         <div class="error-msg" id="err-name">Please enter a server name.</div>
       </div>
-
-      <!-- Logo Upload -->
       <div class="form-group">
-        <label class="form-label">Server Logo <span style="color:var(--muted)">(optional)</span></label>
+        <label class="form-label">Server Logo <span class="opt">(optional)</span></label>
         <div class="logo-upload-wrap">
           <div class="logo-preview" id="logo-preview">🎮</div>
           <div>
             <input type="file" id="logo-file" accept="image/*" style="display:none" onchange="handleLogoUpload(event)"/>
             <button class="logo-upload-btn" onclick="document.getElementById('logo-file').click()">Upload Image</button>
-            <div class="logo-hint">PNG, JPG — max 2MB recommended</div>
+            <div class="hint">PNG or JPG recommended</div>
           </div>
         </div>
       </div>
-
-      <!-- IP + Port -->
-      <div class="row2">
+      <div class="row2" style="margin-bottom:16px">
         <div class="form-group" style="margin-bottom:0">
-          <label class="form-label">Server IP <span>*</span></label>
+          <label class="form-label">Server IP <span class="req">*</span></label>
           <input class="form-input" id="f-ip" type="text" placeholder="play.example.net"/>
           <div class="error-msg" id="err-ip">Please enter the server IP.</div>
         </div>
         <div class="form-group" style="margin-bottom:0">
-          <label class="form-label">Port</label>
-          <input class="form-input" id="f-port" type="text" placeholder="19132 or 25565" maxlength="10"/>
+          <label class="form-label">Port <span class="opt">(optional)</span></label>
+          <input class="form-input" id="f-port" type="text" placeholder="19132 / 25565" maxlength="10"/>
         </div>
       </div>
-
-      <!-- Platform -->
-      <div class="form-group" style="margin-top:18px">
-        <label class="form-label">Platform <span>*</span></label>
+      <div class="form-group">
+        <label class="form-label">Platform <span class="req">*</span></label>
         <select class="form-select" id="f-platform">
           <option value="">— Select platform —</option>
           <option value="Bedrock / MCPE">Bedrock / MCPE</option>
           <option value="Java Edition">Java Edition</option>
-          <option value="Both (Java + Bedrock)">Both (Java + Bedrock)</option>
+          <option value="Java + Bedrock">Java + Bedrock</option>
         </select>
         <div class="error-msg" id="err-platform">Please select a platform.</div>
       </div>
-
-      <!-- Gamemodes -->
       <div class="form-group">
-        <label class="form-label">Game Modes <span>*</span> <span style="color:var(--muted);font-size:6px">(select all that apply)</span></label>
-        <div class="gamemode-grid">
-          <div>
-            <input class="gm-option" type="checkbox" id="gm-lifesteal" value="lifesteal"/>
-            <label class="gm-label" for="gm-lifesteal">🩸 Lifesteal</label>
-          </div>
-          <div>
-            <input class="gm-option" type="checkbox" id="gm-pvp" value="pvp"/>
-            <label class="gm-label" for="gm-pvp">⚔️ PvP</label>
-          </div>
-          <div>
-            <input class="gm-option" type="checkbox" id="gm-survival" value="survival"/>
-            <label class="gm-label" for="gm-survival">🌲 Survival</label>
-          </div>
-          <div>
-            <input class="gm-option" type="checkbox" id="gm-bedwars" value="bedwars"/>
-            <label class="gm-label" for="gm-bedwars">🛏️ BedWars</label>
-          </div>
-          <div>
-            <input class="gm-option" type="checkbox" id="gm-skywars" value="skywars"/>
-            <label class="gm-label" for="gm-skywars">🌩️ SkyWars</label>
-          </div>
-          <div>
-            <input class="gm-option" type="checkbox" id="gm-factions" value="factions"/>
-            <label class="gm-label" for="gm-factions">🏰 Factions</label>
-          </div>
-        </div>
-        <div class="error-msg" id="err-gm">Please select at least one game mode.</div>
+        <label class="form-label">Game Mode <span class="req">*</span></label>
+        <select class="form-select" id="f-gamemode">
+          <option value="">— Select game mode —</option>
+          <option value="lifesteal">🩸 Lifesteal</option>
+          <option value="pvp">⚔️ PvP</option>
+          <option value="survival">🌲 Survival</option>
+          <option value="others">🎮 Others</option>
+        </select>
+        <div class="error-msg" id="err-gamemode">Please select a game mode.</div>
       </div>
-
-      <!-- Description -->
       <div class="form-group">
-        <label class="form-label">Description <span>*</span></label>
+        <label class="form-label">Description <span class="req">*</span></label>
         <textarea class="form-textarea" id="f-desc" placeholder="Tell players what makes your server special..." maxlength="200"></textarea>
         <div style="font-family:var(--px);font-size:5px;color:var(--muted);margin-top:4px;text-align:right">
           <span id="desc-count">0</span>/200
         </div>
         <div class="error-msg" id="err-desc">Please add a description.</div>
       </div>
-
-      <button class="form-submit" onclick="submitServer()">⚔ ADD SERVER TO LIST</button>
+      <button class="form-submit" id="submit-btn" onclick="submitServer()">⚔ ADD SERVER TO LIST</button>
     </div>
   </div>
 </div>
 
-<!-- TOAST -->
 <div class="toast" id="toast"></div>
 
 <script>
-// ── Gamemode colours for the top bar ──
-const GM_COLORS = {
-  lifesteal:'#e74c3c', pvp:'#e67e22', survival:'#27ae60',
-  bedwars:'#5bc8ff', skywars:'#b39ddb', factions:'#ff8a65'
-};
+const BIN_ID  = '69b035036a0858658be219f6';
+const API_KEY = '$2a$10$vGeDCVNg6iIWCsYvNUyUeOO/frMWZxna.VvB/NKzd0G/GdK1EzqMO';
+const BIN_URL = `https://api.jsonbin.io/v3/b/${BIN_ID}`;
+const HEADERS = { 'Content-Type':'application/json', 'X-Master-Key': API_KEY };
 
-// ── Storage key ──
-const STORE_KEY = 'bmcs_servers_v2';
+const GM_COLORS = { lifesteal:'#e74c3c', pvp:'#e67e22', survival:'#27ae60', others:'#666' };
+const GM_ICONS  = { lifesteal:'🩸', pvp:'⚔️', survival:'🌲', others:'🎮' };
 
-// ── Load servers from localStorage ──
-function loadServers(){
-  try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || []; }
-  catch(e){ return []; }
-}
-function saveServers(arr){ localStorage.setItem(STORE_KEY, JSON.stringify(arr)); }
+let allServers = [];
+let logoDataUrl = null;
 
-// ── Render all server cards ──
-function renderServers(){
-  const servers = loadServers();
-  const grid = document.getElementById('server-grid');
-  document.getElementById('total-count').textContent = 1 + servers.length;
-
-  if(servers.length === 0){
-    grid.innerHTML = `
-      <div class="empty-state" style="grid-column:1/-1">
-        <span class="empty-icon">📭</span>
-        <div class="empty-text">No community servers yet.<br/>Be the first to add one!</div>
-      </div>`;
-    return;
-  }
-
-  grid.innerHTML = servers.map((s, i) => buildCard(s, i)).join('');
-
-  // Kick off live status checks
-  servers.forEach((s, i) => checkStatus(s.ip, s.port, i));
+// ── Fetch all servers ──
+async function fetchServers(){
+  try{
+    const res = await fetch(BIN_URL+'/latest', { headers:{ 'X-Master-Key': API_KEY } });
+    const data = await res.json();
+    return data.record?.servers || [];
+  } catch(e){ return []; }
 }
 
+// ── Save all servers ──
+async function saveServers(arr){
+  await fetch(BIN_URL, {
+    method:'PUT',
+    headers: HEADERS,
+    body: JSON.stringify({ servers: arr })
+  });
+}
+
+// ── Escape HTML ──
+function esc(s){ return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// ── Build card HTML ──
 function buildCard(s, i){
-  const tags = (s.gamemodes || []).map(g =>
-    `<span class="tag ${g}">${g}</span>`
-  ).join('') + `<span class="tag cracked">Cracked</span>`;
-
-  const topColor = s.gamemodes && s.gamemodes.length
-    ? GM_COLORS[s.gamemodes[0]] || '#4CAF50'
-    : '#4CAF50';
-
-  const logoHtml = s.logo
-    ? `<img src="${s.logo}" alt="logo"/>`
-    : '🎮';
-
-  const port = s.port || (s.platform && s.platform.includes('Bedrock') ? '19132' : '25565');
+  const gm    = s.gamemode || 'others';
+  const color = GM_COLORS[gm] || '#666';
+  const icon  = GM_ICONS[gm]  || '🎮';
+  const logo  = s.logo ? `<img src="${s.logo}" alt=""/>` : icon;
+  const port  = s.port || '';
 
   return `
   <div class="srv-card" id="card-${i}">
-    <div class="top-bar" style="background:${topColor}"></div>
+    <div class="top-bar" style="background:${color}"></div>
     <div class="srv-head">
-      <div class="srv-logo">${logoHtml}</div>
+      <div class="srv-logo">${logo}</div>
       <div class="srv-info">
         <div class="srv-name">${esc(s.name)}</div>
-        <div class="srv-tags">${tags}</div>
+        <div class="srv-tags">
+          <span class="tag gm-${gm}">${icon} ${gm.charAt(0).toUpperCase()+gm.slice(1)}</span>
+          <span class="tag cracked">Cracked</span>
+          ${s.platform?`<span class="tag platform">${esc(s.platform)}</span>`:''}
+        </div>
       </div>
-      <div class="srv-dot checking" id="dot-${i}" title="Checking status..."></div>
+      <div class="srv-dot checking" id="dot-${i}"></div>
     </div>
     <div class="srv-body">
       <p class="srv-desc">${esc(s.desc)}</p>
       <div class="srv-meta">
-        <div class="meta">
-          <div class="meta-l">Server IP</div>
-          <div class="meta-v ip">${esc(s.ip)}</div>
-        </div>
-        <div class="meta">
-          <div class="meta-l">Port</div>
-          <div class="meta-v">${esc(port)}</div>
-        </div>
-        <div class="meta">
-          <div class="meta-l">Platform</div>
-          <div class="meta-v" style="font-size:14px">${esc(s.platform || 'Unknown')}</div>
-        </div>
-        <div class="meta">
-          <div class="meta-l">Players</div>
-          <div class="meta-v green" id="players-${i}">Checking...</div>
-        </div>
+        <div class="meta"><div class="meta-l">Server IP</div><div class="meta-v ip">${esc(s.ip)}</div></div>
+        <div class="meta"><div class="meta-l">Port</div><div class="meta-v">${esc(port||'Default')}</div></div>
+        <div class="meta"><div class="meta-l">Platform</div><div class="meta-v" style="font-size:13px">${esc(s.platform||'—')}</div></div>
+        <div class="meta"><div class="meta-l">Players</div><div class="meta-v green" id="pl-${i}">Checking...</div></div>
       </div>
     </div>
     <div class="srv-foot">
       <button class="copy-btn" onclick="copyIP(this,'${esc(s.ip)}')">Copy IP</button>
       <div class="pbar-wrap">
         <div class="pbar-top"><span>Capacity</span><span id="cap-${i}">—</span></div>
-        <div class="pbar"><div class="pbar-fill" id="pbar-${i}" style="width:0%"></div></div>
+        <div class="pbar"><div class="pbar-fill" id="pb-${i}" style="width:0%"></div></div>
       </div>
-      <button class="del-btn" onclick="deleteServer(${i})">✕ Remove</button>
     </div>
   </div>`;
 }
 
-function esc(s){ return String(s||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+// ── Render servers for a specific gamemode (null = others for homepage) ──
+function renderGrid(servers, gamemode){
+  const grid = document.getElementById('server-grid');
+  if(!grid) return;
+  const filtered = servers.filter(s => (s.gamemode||'others') === gamemode);
+  if(filtered.length === 0){
+    grid.innerHTML = `<div class="empty-state">
+      <span class="empty-icon">📭</span>
+      <div class="empty-text">No servers here yet.<br/>Be the first to add one!</div>
+    </div>`;
+    return;
+  }
+  grid.innerHTML = filtered.map((s,i) => {
+    // find real index in allServers for delete
+    const realIdx = servers.indexOf(s);
+    return buildCard(s, realIdx);
+  }).join('');
+  filtered.forEach(s => {
+    const ri = servers.indexOf(s);
+    pingServer(s.ip, s.port, ri);
+  });
+}
 
-// ── Live status check ──
-async function checkStatus(ip, port, i){
+// ── Update category counts ──
+function updateCounts(servers){
+  const count = gm => servers.filter(s=>(s.gamemode||'others')===gm).length;
+  const set = (id, n) => { const el=document.getElementById(id); if(el) el.textContent = n+' server'+(n!==1?'s':''); };
+  set('count-lifesteal', count('lifesteal'));
+  set('count-pvp',       count('pvp'));
+  set('count-survival',  count('survival'));
+  set('count-others',    count('others'));
+  const tot = document.getElementById('total-count');
+  if(tot) tot.textContent = servers.length + 1; // +1 for CrownMC
+}
+
+// ── Ping server status ──
+async function pingServer(ip, port, i){
   const dot = document.getElementById('dot-'+i);
-  const playersEl = document.getElementById('players-'+i);
+  const plEl = document.getElementById('pl-'+i);
   const capEl = document.getElementById('cap-'+i);
-  const pbarEl = document.getElementById('pbar-'+i);
+  const pbEl  = document.getElementById('pb-'+i);
   if(!dot) return;
-
-  // Use Bedrock endpoint if port 19132, else Java
-  const isBedrock = String(port) === '19132';
-  const endpoint = isBedrock
+  const isBedrock = String(port)==='19132';
+  const url = isBedrock
     ? `https://api.mcsrvstat.us/bedrock/3/${ip}`
-    : `https://api.mcsrvstat.us/3/${ip}${port && port!=='25565' ? ':'+port : ''}`;
-
+    : `https://api.mcsrvstat.us/3/${ip}${port&&port!=='25565'?':'+port:''}`;
   try{
-    const res = await fetch(endpoint);
+    const res  = await fetch(url);
     const data = await res.json();
     if(data.online){
-      dot.className = 'srv-dot on';
-      const on = data.players?.online ?? '?';
-      const max = data.players?.max ?? '?';
-      playersEl.textContent = on + ' / ' + max;
-      playersEl.className = 'meta-v green';
-      if(typeof on==='number' && typeof max==='number' && max>0){
-        const pct = Math.min(100,Math.round(on/max*100));
-        capEl.textContent = pct+'%';
-        pbarEl.style.width = pct+'%';
+      dot.className='srv-dot on';
+      const on=data.players?.online??'?', mx=data.players?.max??'?';
+      if(plEl) plEl.textContent=on+' / '+mx;
+      if(typeof on==='number'&&typeof mx==='number'&&mx>0&&capEl&&pbEl){
+        const p=Math.min(100,Math.round(on/mx*100));
+        capEl.textContent=p+'%'; pbEl.style.width=p+'%';
       }
     } else {
-      dot.className = 'srv-dot off';
-      playersEl.textContent = 'Offline';
-      playersEl.className = 'meta-v red';
-      capEl.textContent = '0%';
-      pbarEl.style.width = '0%';
-      pbarEl.style.background = '#e74c3c';
+      dot.className='srv-dot off';
+      if(plEl){ plEl.textContent='Offline'; plEl.className='meta-v red'; }
+      if(capEl) capEl.textContent='0%';
+      if(pbEl){ pbEl.style.width='0%'; pbEl.style.background='#e74c3c'; }
     }
-  } catch(e){
-    dot.className = 'srv-dot off';
-    playersEl.textContent = 'N/A';
-  }
+  } catch(e){ if(dot) dot.className='srv-dot off'; if(plEl) plEl.textContent='N/A'; }
 }
 
 // ── Copy IP ──
@@ -635,120 +530,83 @@ function copyIP(btn, ip){
   });
 }
 
-// ── Delete server ──
-function deleteServer(i){
-  if(!confirm('Remove this server from the list?')) return;
-  const arr = loadServers();
-  arr.splice(i,1);
-  saveServers(arr);
-  renderServers();
-  showToast('Server removed.');
-}
+// ── Modal ──
+function openModal(){ document.getElementById('modal-overlay').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeModal(){ document.getElementById('modal-overlay').classList.remove('open'); document.body.style.overflow=''; }
+function handleOverlayClick(e){ if(e.target===document.getElementById('modal-overlay')) closeModal(); }
 
-// ── Modal open/close ──
-function openModal(){
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeModal(){
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow='';
-}
-function handleOverlayClick(e){
-  if(e.target === document.getElementById('modal-overlay')) closeModal();
-}
-
-// ── Logo preview ──
-let logoDataUrl = null;
+// ── Logo upload ──
 function handleLogoUpload(e){
-  const file = e.target.files[0];
-  if(!file) return;
-  if(file.size > 3*1024*1024){ showToast('Image too large! Max 3MB.'); return; }
-  const reader = new FileReader();
-  reader.onload = ev => {
-    logoDataUrl = ev.target.result;
-    const preview = document.getElementById('logo-preview');
-    preview.innerHTML = `<img src="${logoDataUrl}" alt="logo"/>`;
-  };
-  reader.readAsDataURL(file);
+  const file=e.target.files[0]; if(!file) return;
+  if(file.size>2*1024*1024){ showToast('Image too large! Max 2MB.'); return; }
+  const r=new FileReader();
+  r.onload=ev=>{ logoDataUrl=ev.target.result; document.getElementById('logo-preview').innerHTML=`<img src="${logoDataUrl}"/>`; };
+  r.readAsDataURL(file);
 }
 
-// ── Desc char counter ──
-document.addEventListener('DOMContentLoaded', ()=>{
-  const desc = document.getElementById('f-desc');
-  if(desc) desc.addEventListener('input', ()=>{
-    document.getElementById('desc-count').textContent = desc.value.length;
-  });
-  renderServers();
-  checkCrownMCStatus();
-});
-
-// ── Submit server ──
-function submitServer(){
-  // Clear errors
+// ── Submit ──
+async function submitServer(){
   document.querySelectorAll('.error-msg').forEach(e=>e.style.display='none');
+  const name=document.getElementById('f-name').value.trim();
+  const ip=document.getElementById('f-ip').value.trim();
+  const port=document.getElementById('f-port').value.trim();
+  const platform=document.getElementById('f-platform').value;
+  const gamemode=document.getElementById('f-gamemode').value;
+  const desc=document.getElementById('f-desc').value.trim();
+  let ok=true;
+  if(!name){ document.getElementById('err-name').style.display='block'; ok=false; }
+  if(!ip){ document.getElementById('err-ip').style.display='block'; ok=false; }
+  if(!platform){ document.getElementById('err-platform').style.display='block'; ok=false; }
+  if(!gamemode){ document.getElementById('err-gamemode').style.display='block'; ok=false; }
+  if(!desc){ document.getElementById('err-desc').style.display='block'; ok=false; }
+  if(!ok) return;
 
-  const name = document.getElementById('f-name').value.trim();
-  const ip   = document.getElementById('f-ip').value.trim();
-  const port = document.getElementById('f-port').value.trim();
-  const platform = document.getElementById('f-platform').value;
-  const desc = document.getElementById('f-desc').value.trim();
+  const btn=document.getElementById('submit-btn');
+  btn.disabled=true; btn.textContent='Saving...';
 
-  const gamemodes = ['lifesteal','pvp','survival','bedwars','skywars','factions']
-    .filter(g => document.getElementById('gm-'+g).checked);
-
-  let valid = true;
-  if(!name){ document.getElementById('err-name').style.display='block'; valid=false; }
-  if(!ip){ document.getElementById('err-ip').style.display='block'; valid=false; }
-  if(!platform){ document.getElementById('err-platform').style.display='block'; valid=false; }
-  if(!gamemodes.length){ document.getElementById('err-gm').style.display='block'; valid=false; }
-  if(!desc){ document.getElementById('err-desc').style.display='block'; valid=false; }
-  if(!valid) return;
-
-  const newServer = {
-    name, ip, port, platform, gamemodes, desc,
-    logo: logoDataUrl,
-    addedAt: Date.now()
-  };
-
-  const arr = loadServers();
-  arr.unshift(newServer);
-  saveServers(arr);
-
-  // Reset form
-  document.getElementById('f-name').value='';
-  document.getElementById('f-ip').value='';
-  document.getElementById('f-port').value='';
-  document.getElementById('f-platform').value='';
-  document.getElementById('f-desc').value='';
-  document.getElementById('desc-count').textContent='0';
-  document.querySelectorAll('.gm-option').forEach(c=>c.checked=false);
-  logoDataUrl = null;
-  document.getElementById('logo-preview').innerHTML='🎮';
-
-  closeModal();
-  renderServers();
-  showToast('✔ Server added successfully!');
+  try{
+    const current = await fetchServers();
+    current.unshift({ name, ip, port, platform, gamemode, desc, logo: logoDataUrl, addedAt: Date.now() });
+    await saveServers(current);
+    closeModal();
+    showToast('✔ Server added! Everyone can see it now.');
+    // redirect to the correct page
+    const pages = { lifesteal:'lifesteal.html', pvp:'pvp.html', survival:'survival.html' };
+    if(pages[gamemode]) setTimeout(()=>{ window.location.href=pages[gamemode]; }, 1200);
+    else { allServers=current; updateCounts(current); renderGrid(current,'others'); }
+  } catch(e){
+    showToast('Error saving. Please try again.');
+  }
+  btn.disabled=false; btn.textContent='⚔ ADD SERVER TO LIST';
 }
 
 // ── Toast ──
 function showToast(msg){
-  const t = document.getElementById('toast');
-  t.textContent = msg;
-  t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'), 3000);
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3000);
 }
 
 // ── CrownMC status ──
-async function checkCrownMCStatus(){
-  const el = document.getElementById('online-count');
+async function checkCrown(){
+  const el=document.getElementById('crown-status');
   try{
-    const res = await fetch('https://api.mcsrvstat.us/bedrock/3/CrownMc.Net');
-    const data = await res.json();
-    if(data.online){ el.textContent='Online'; el.style.color='#6FCF3F'; }
+    const r=await fetch('https://api.mcsrvstat.us/bedrock/3/CrownMc.Net');
+    const d=await r.json();
+    if(d.online){ el.textContent='Online'; el.style.color='#6FCF3F'; }
     else { el.textContent='Offline'; el.style.color='#e74c3c'; }
   } catch(e){ el.textContent='N/A'; }
 }
+
+// ── Desc counter ──
+document.getElementById('f-desc').addEventListener('input', function(){ document.getElementById('desc-count').textContent=this.value.length; });
+
+// ── Init ──
+(async()=>{
+  allServers = await fetchServers();
+  updateCounts(allServers);
+  renderGrid(allServers, 'others');
+  checkCrown();
+})();
 </script>
 </body>
 </html>
