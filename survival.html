@@ -9,139 +9,175 @@
 :root{
   --grass:#4CAF50;--grass-bright:#6FCF3F;--grass-dark:#2d6a2f;
   --gold:#FFD700;--crown:#FFD700;--crown-dark:#7a6000;
-  --bg:#111;--card:#1c1c1c;--border:#2a2a2a;
-  --text:#e8e8e8;--muted:#888;
+  --bg:#111;--card:#1c1c1c;--border:#2a2a2a;--text:#e8e8e8;--muted:#888;
   --accent:#27ae60;--accent-dark:#0f4a28;
+  --lifesteal:#e74c3c;--pvp:#e67e22;
   --px:'Press Start 2P',monospace;--vt:'VT323',monospace;--body:'Outfit',sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;}
-body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
-  background-image:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px),
-    repeating-linear-gradient(90deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px);
-  background-size:32px 32px;}
-
-nav{position:sticky;top:0;z-index:999;background:rgba(10,10,10,.97);border-bottom:3px solid var(--accent-dark);backdrop-filter:blur(10px);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;}
-.nav-logo{font-family:var(--px);font-size:9px;color:var(--grass-bright);text-shadow:2px 2px 0 var(--grass-dark);text-decoration:none;line-height:1.7;}
-.nav-logo span{color:var(--gold);text-shadow:2px 2px 0 #7a6000;}
-.nav-links{display:flex;gap:6px;}
-.nav-links a{font-family:var(--px);font-size:7px;padding:8px 10px;border:2px solid transparent;border-radius:2px;text-decoration:none;color:var(--muted);transition:all .15s;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px),repeating-linear-gradient(90deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px);background-size:32px 32px;}
+nav{position:sticky;top:0;z-index:999;background:rgba(10,10,10,.97);border-bottom:3px solid var(--accent-dark);backdrop-filter:blur(10px);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;gap:10px;}
+.nav-logo{font-family:var(--px);font-size:9px;color:var(--grass-bright);text-shadow:2px 2px 0 var(--grass-dark);text-decoration:none;line-height:1.7;flex-shrink:0;}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:5px;align-items:center;}
+.nav-links a{font-family:var(--px);font-size:7px;padding:7px 9px;border:2px solid transparent;border-radius:2px;text-decoration:none;color:var(--muted);transition:all .15s;}
 .nav-links a:hover{color:#fff;border-color:var(--accent);background:rgba(39,174,96,.1);}
 .nav-links a.active{color:var(--accent);border-color:var(--accent);background:rgba(39,174,96,.1);}
-
-.page-hero{position:relative;text-align:center;padding:55px 20px 48px;background:linear-gradient(180deg,#071a07 0%,#0a1a0a 60%,var(--bg) 100%);overflow:hidden;}
+.nav-add-btn{font-family:var(--px);font-size:7px;padding:7px 12px;border:2px solid var(--gold);border-radius:2px;background:rgba(255,215,0,.08);color:var(--gold);cursor:pointer;transition:all .15s;white-space:nowrap;}
+.nav-add-btn:hover{background:var(--gold);color:#000;}
+.page-hero{position:relative;text-align:center;padding:55px 20px 46px;background:linear-gradient(180deg,#071a07 0%,#0a1a0a 60%,var(--bg) 100%);overflow:hidden;}
 .page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:8px;background:repeating-linear-gradient(90deg,var(--grass) 0,var(--grass) 16px,var(--grass-bright) 16px,var(--grass-bright) 32px,var(--grass-dark) 32px,var(--grass-dark) 48px);}
 .page-hero-icon{font-size:46px;display:block;margin-bottom:14px;animation:sway 3s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(39,174,96,.6));}
 @keyframes sway{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-6px)}}
-.page-hero h1{font-family:var(--px);font-size:clamp(13px,3vw,22px);color:var(--grass-bright);text-shadow:4px 4px 0 var(--accent-dark),0 0 30px rgba(39,174,96,.3);margin-bottom:8px;}
+.page-hero h1{font-family:var(--px);font-size:clamp(13px,3vw,22px);color:var(--grass-bright);text-shadow:4px 4px 0 var(--accent-dark);margin-bottom:8px;}
 .page-hero p{font-family:var(--vt);font-size:21px;color:var(--muted);}
-
-main{max-width:860px;margin:0 auto;padding:44px 20px 80px;position:relative;z-index:1;}
+.page-stat{display:inline-flex;gap:24px;margin-top:18px;padding:10px 22px;border:2px solid var(--accent-dark);border-radius:3px;background:rgba(39,174,96,.06);}
+.ps{text-align:center;}.ps-n{font-family:var(--px);font-size:13px;color:var(--accent);}.ps-l{font-family:var(--vt);font-size:15px;color:var(--muted);margin-top:2px;}
+main{max-width:900px;margin:0 auto;padding:44px 20px 80px;position:relative;z-index:1;}
 .sec-title{font-family:var(--px);font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px;}
 .sec-title::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--accent-dark),transparent);}
-
-.note-box{background:rgba(255,215,0,.05);border:2px solid var(--crown-dark);border-radius:4px;padding:16px 20px;margin-bottom:30px;}
-.note-title{font-family:var(--px);font-size:8px;color:var(--crown);margin-bottom:10px;}
-.note-text{font-size:14px;color:var(--muted);line-height:1.7;}
-.note-text strong{color:var(--crown);}
-
-/* Crown Card */
-.crown-card{background:var(--card);border:3px solid var(--crown-dark);border-radius:6px;overflow:hidden;transition:border-color .3s,box-shadow .3s;animation:fadeUp .5s ease both;position:relative;}
+/* CrownMC card */
+.crown-card{background:var(--card);border:3px solid var(--crown-dark);border-radius:6px;overflow:hidden;transition:border-color .3s,box-shadow .3s;margin-bottom:32px;}
 .crown-card:hover{border-color:var(--crown);box-shadow:0 8px 40px rgba(255,215,0,.18);}
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 .crown-card::before{content:'';display:block;height:5px;background:linear-gradient(90deg,var(--crown-dark),var(--crown),#fff8c0,var(--crown),var(--crown-dark));background-size:200% 100%;animation:shimmer 2.5s linear infinite;}
 @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-
-.crown-head{padding:26px 26px 18px;display:flex;align-items:center;gap:18px;border-bottom:2px solid #2a2a1a;background:linear-gradient(135deg,#1a1a0a,#1c1c10);flex-wrap:wrap;}
-.crown-icon{width:68px;height:68px;border-radius:6px;border:3px solid var(--crown-dark);background:#222208;font-size:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px rgba(255,215,0,.2);}
-.crown-info{flex:1;min-width:0;}
-.crown-name{font-family:var(--px);font-size:15px;color:var(--crown);text-shadow:3px 3px 0 var(--crown-dark),0 0 20px rgba(255,215,0,.4);margin-bottom:8px;}
-.crown-tags{display:flex;gap:6px;flex-wrap:wrap;}
-.tag{font-family:var(--px);font-size:6px;padding:3px 8px;border-radius:1px;border:1px solid;}
+.crown-head{padding:22px;display:flex;align-items:center;gap:16px;border-bottom:2px solid #2a2a1a;background:linear-gradient(135deg,#1a1a0a,#1c1c10);flex-wrap:wrap;}
+.crown-icon{width:64px;height:64px;border-radius:6px;border:3px solid var(--crown-dark);background:#222208;font-size:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 14px rgba(255,215,0,.2);}
+.crown-info{flex:1;}
+.crown-name{font-family:var(--px);font-size:14px;color:var(--crown);text-shadow:3px 3px 0 var(--crown-dark),0 0 18px rgba(255,215,0,.3);margin-bottom:7px;}
+.crown-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.tag{font-family:var(--px);font-size:5px;padding:2px 6px;border-radius:1px;border:1px solid;}
 .tag.sv{color:var(--accent);border-color:var(--accent);background:rgba(39,174,96,.1);}
 .tag.cr{color:var(--gold);border-color:var(--gold);background:rgba(255,215,0,.08);}
 .tag.be{color:#5bc8ff;border-color:#3a8aaa;background:rgba(91,200,255,.08);}
-
-.status-badge{display:flex;align-items:center;gap:8px;padding:10px 16px;border:2px solid #333;border-radius:3px;background:#161616;flex-shrink:0;min-width:140px;justify-content:center;}
+.status-badge{display:flex;align-items:center;gap:8px;padding:9px 14px;border:2px solid #333;border-radius:3px;background:#161616;flex-shrink:0;min-width:130px;justify-content:center;}
 .dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
 .dot.checking{background:var(--gold);animation:blink 1s ease-in-out infinite;}
 .dot.online{background:var(--grass-bright);box-shadow:0 0 10px var(--grass-bright);animation:blink 2s ease-in-out infinite;}
 .dot.offline{background:#e74c3c;}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
 .status-text{font-family:var(--px);font-size:8px;}
-.status-text.checking{color:var(--gold);}
-.status-text.online{color:var(--grass-bright);}
-.status-text.offline{color:#e74c3c;}
-
-.crown-body{padding:24px 26px;}
-.crown-desc{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:22px;}
-
-.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:22px;}
-.info-box{background:#161610;border:2px solid #2a2a18;border-radius:3px;padding:12px 14px;}
-.info-label{font-family:var(--px);font-size:6px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
-.info-value{font-family:var(--vt);font-size:20px;color:#fff;}
-.info-value.gold{color:var(--crown);font-size:22px;}
+.status-text.checking{color:var(--gold);}.status-text.online{color:var(--grass-bright);}.status-text.offline{color:#e74c3c;}
+.crown-body{padding:20px 22px;}
+.crown-desc{font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:18px;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-bottom:18px;}
+.info-box{background:#161610;border:2px solid #2a2a18;border-radius:3px;padding:10px 12px;}
+.info-label{font-family:var(--px);font-size:5px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.info-value{font-family:var(--vt);font-size:19px;}
+.info-value.gold{color:var(--crown);font-size:20px;}
 .info-value.green{color:var(--grass-bright);}
-.info-value.ip{font-size:17px;color:var(--crown);}
-
+.info-value.ip{font-size:16px;color:var(--crown);}
 .players-section{margin-bottom:4px;}
-.players-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.players-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;}
 .players-label span{font-family:var(--px);font-size:6px;color:var(--muted);}
-.players-label .count{color:var(--crown);font-size:7px;}
-.pbar{height:8px;background:#2a2a18;border-radius:2px;overflow:hidden;border:1px solid #3a3a20;}
+.players-label .count{color:var(--crown);}
+.pbar{height:7px;background:#2a2a18;border-radius:2px;overflow:hidden;border:1px solid #3a3a20;}
 .pbar-fill{height:100%;background:linear-gradient(90deg,var(--crown-dark),var(--crown));border-radius:2px;transition:width 1s ease;}
-
-.crown-foot{padding:18px 26px;background:#161610;border-top:2px solid #2a2a18;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
-.copy-btn{font-family:var(--px);font-size:8px;padding:12px 20px;background:var(--crown-dark);color:var(--crown);border:2px solid var(--crown);border-radius:2px;cursor:pointer;transition:all .15s;flex:1;min-width:140px;text-align:center;}
-.copy-btn:hover{background:var(--crown);color:#000;}
-.copy-btn.copied{background:var(--grass-bright);color:#000;border-color:var(--grass-bright);}
-.copy-port-btn{font-family:var(--px);font-size:8px;padding:12px 20px;background:#1a1a0a;color:var(--muted);border:2px solid #333;border-radius:2px;cursor:pointer;transition:all .15s;min-width:140px;text-align:center;}
-.copy-port-btn:hover{border-color:var(--crown);color:var(--crown);}
-.copy-port-btn.copied{background:var(--crown-dark);color:var(--crown);border-color:var(--crown);}
-
-footer{text-align:center;padding:24px 20px;border-top:4px solid;border-image:repeating-linear-gradient(90deg,var(--grass) 0,var(--grass) 16px,var(--grass-bright) 16px,var(--grass-bright) 32px,var(--grass-dark) 32px,var(--grass-dark) 48px) 1;font-family:var(--px);font-size:7px;color:var(--muted);letter-spacing:1px;}
+.crown-foot{padding:16px 22px;background:#161610;border-top:2px solid #2a2a18;display:flex;gap:10px;flex-wrap:wrap;}
+.crown-copy{font-family:var(--px);font-size:7px;padding:11px 18px;background:var(--crown-dark);color:var(--crown);border:2px solid var(--crown);border-radius:2px;cursor:pointer;transition:all .15s;flex:1;text-align:center;}
+.crown-copy:hover{background:var(--crown);color:#000;}
+.crown-copy.copied{background:var(--grass-bright);color:#000;border-color:var(--grass-bright);}
+/* community cards */
+.server-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;}
+.empty-state{text-align:center;padding:40px 20px;border:2px dashed var(--accent-dark);border-radius:6px;grid-column:1/-1;}
+.empty-icon{font-size:34px;display:block;margin-bottom:10px;opacity:.4;}
+.empty-text{font-family:var(--px);font-size:7px;color:var(--muted);line-height:2.2;}
+.empty-btn{display:inline-block;margin-top:14px;font-family:var(--px);font-size:7px;padding:9px 16px;background:var(--accent-dark);color:var(--accent);border:2px solid var(--accent);border-radius:2px;cursor:pointer;transition:all .15s;}
+.empty-btn:hover{background:var(--accent);color:#fff;}
+.loading-state{text-align:center;padding:30px;grid-column:1/-1;font-family:var(--px);font-size:8px;color:var(--muted);}
+.loading-state span{display:inline-block;animation:blink2 1s ease-in-out infinite;}
+@keyframes blink2{0%,100%{opacity:.3}50%{opacity:1}}
+.srv-card{background:var(--card);border:2px solid var(--border);border-radius:4px;overflow:hidden;transition:transform .2s,border-color .2s,box-shadow .2s;animation:fadeUp .4s ease both;}
+.srv-card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 8px 28px rgba(39,174,96,.12);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.top-bar{height:4px;background:var(--accent);}
+.srv-head{padding:14px;display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--border);}
+.srv-logo{width:50px;height:50px;border-radius:4px;border:2px solid #333;background:#222;font-size:24px;display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;}
+.srv-logo img{width:100%;height:100%;object-fit:cover;border-radius:2px;}
+.srv-info{flex:1;min-width:0;}
+.srv-name{font-family:var(--px);font-size:9px;color:#fff;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.srv-tags{display:flex;gap:4px;flex-wrap:wrap;}
+.tag.gm-survival{color:var(--accent);border-color:var(--accent);background:rgba(39,174,96,.1);}
+.tag.cracked{color:var(--gold);border-color:var(--gold);background:rgba(255,215,0,.08);}
+.tag.platform{color:#5bc8ff;border-color:#3a8aaa;background:rgba(91,200,255,.08);}
+.srv-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+.srv-dot.on{background:var(--grass-bright);box-shadow:0 0 8px var(--grass-bright);animation:blink 2s ease-in-out infinite;}
+.srv-dot.off{background:#e74c3c;}
+.srv-dot.checking{background:var(--gold);animation:blink 1s ease-in-out infinite;}
+.srv-body{padding:12px 14px;}
+.srv-desc{font-size:13px;color:var(--muted);line-height:1.5;margin-bottom:10px;}
+.srv-meta{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+.meta{background:#161616;border:1px solid var(--border);border-radius:2px;padding:7px 9px;}
+.meta-l{font-family:var(--px);font-size:5px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:3px;}
+.meta-v{font-family:var(--vt);font-size:17px;}
+.meta-v.green{color:var(--grass-bright);}
+.meta-v.red{color:#e74c3c;}
+.meta-v.ip{font-size:13px;color:var(--accent);}
+.srv-foot{padding:9px 14px;background:#161616;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.copy-btn{font-family:var(--px);font-size:6px;padding:7px 11px;background:var(--accent-dark);color:var(--accent);border:2px solid var(--accent);border-radius:2px;cursor:pointer;transition:all .15s;}
+.copy-btn:hover{background:var(--accent);color:#fff;}
+.copy-btn.copied{background:var(--gold);color:#000;border-color:var(--gold);}
+.pbar-wrap{flex:1;}
+.pbar-top{display:flex;justify-content:space-between;font-family:var(--px);font-size:5px;color:var(--muted);margin-bottom:3px;}
+.pbar2{height:5px;background:#2a2a2a;border-radius:1px;overflow:hidden;}
+.pbar2-fill{height:100%;background:linear-gradient(90deg,var(--accent-dark),var(--grass-bright));border-radius:1px;transition:width .8s ease;}
+/* modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .25s;}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal{background:#161616;border:3px solid var(--accent-dark);border-radius:6px;width:100%;max-width:540px;max-height:90vh;overflow-y:auto;transform:translateY(20px);transition:transform .25s;}
+.modal-overlay.open .modal{transform:translateY(0);}
+.modal::before{content:'';display:block;height:4px;background:linear-gradient(90deg,var(--accent-dark),var(--accent),var(--gold),var(--accent),var(--accent-dark));background-size:200% 100%;animation:shimmer 2.5s linear infinite;}
+.modal-head{padding:20px 22px 14px;display:flex;align-items:center;justify-content:space-between;border-bottom:2px solid var(--border);}
+.modal-title{font-family:var(--px);font-size:10px;color:var(--accent);}
+.modal-close{background:none;border:2px solid #444;color:#888;width:30px;height:30px;border-radius:2px;cursor:pointer;font-size:14px;transition:all .15s;display:flex;align-items:center;justify-content:center;}
+.modal-close:hover{border-color:#e74c3c;color:#e74c3c;}
+.modal-body{padding:22px;}
+.form-group{margin-bottom:16px;}
+.form-label{font-family:var(--px);font-size:7px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:7px;}
+.req{color:#e74c3c;}.opt{color:#555;font-size:6px;}
+.form-input,.form-textarea,.form-select{width:100%;background:#111;border:2px solid var(--border);border-radius:3px;color:var(--text);font-family:var(--body);font-size:14px;padding:10px 12px;outline:none;transition:border-color .15s;}
+.form-input:focus,.form-textarea:focus,.form-select:focus{border-color:var(--accent);}
+.form-textarea{resize:vertical;min-height:76px;line-height:1.5;}
+.form-select{cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23888' d='M6 8L1 3h10z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;}
+.form-select option{background:#1c1c1c;}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.logo-upload-wrap{display:flex;align-items:center;gap:16px;}
+.logo-preview{width:60px;height:60px;border-radius:4px;border:2px solid var(--border);background:#111;display:flex;align-items:center;justify-content:center;font-size:26px;overflow:hidden;flex-shrink:0;}
+.logo-preview img{width:100%;height:100%;object-fit:cover;border-radius:2px;}
+.logo-upload-btn{font-family:var(--px);font-size:7px;padding:9px 13px;background:#111;color:var(--muted);border:2px solid var(--border);border-radius:2px;cursor:pointer;transition:all .15s;}
+.logo-upload-btn:hover{border-color:var(--accent);color:var(--accent);}
+.hint{font-size:11px;color:var(--muted);margin-top:5px;}
+.error-msg{font-family:var(--px);font-size:6px;color:#e74c3c;margin-top:5px;display:none;}
+.form-submit{width:100%;font-family:var(--px);font-size:9px;padding:14px;background:var(--accent-dark);color:var(--accent);border:2px solid var(--accent);border-radius:3px;cursor:pointer;transition:all .15s;letter-spacing:1px;margin-top:4px;}
+.form-submit:hover{background:var(--accent);color:#fff;}
+.form-submit:disabled{opacity:.5;cursor:not-allowed;}
+.toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--accent-dark);border:2px solid var(--accent);color:var(--accent);font-family:var(--px);font-size:8px;padding:12px 24px;border-radius:3px;z-index:99999;transition:transform .3s;pointer-events:none;}
+.toast.show{transform:translateX(-50%) translateY(0);}
+footer{text-align:center;padding:28px 20px;border-top:4px solid;border-image:repeating-linear-gradient(90deg,var(--grass) 0,var(--grass) 16px,var(--grass-bright) 16px,var(--grass-bright) 32px,var(--grass-dark) 32px,var(--grass-dark) 48px) 1;font-family:var(--px);font-size:7px;color:var(--muted);letter-spacing:1px;}
 footer a{color:var(--accent);text-decoration:none;}
-
-@media(max-width:620px){
-  .crown-head{gap:12px;}
-  .status-badge{width:100%;}
-  .info-grid{grid-template-columns:1fr 1fr;}
-  .crown-foot{flex-direction:column;}
-  .copy-btn,.copy-port-btn{width:100%;}
-}
+@media(max-width:620px){.crown-head{gap:10px;}.status-badge{width:100%;}.info-grid{grid-template-columns:1fr 1fr;}.crown-foot{flex-direction:column;}.crown-copy{width:100%;}.nav-logo{font-size:7px;}.nav-links a{font-size:6px;padding:5px 6px;}.row2{grid-template-columns:1fr;}.server-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
 <nav>
   <a class="nav-logo" href="index.html">Best Minecraft<br/><span>Cracked Servers</span></a>
   <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="lifesteal.html">Lifesteal</a>
-    <a href="pvp.html">PvP</a>
-    <a href="survival.html" class="active">Survival</a>
+    <a href="index.html">Home</a><a href="lifesteal.html">Lifesteal</a>
+    <a href="pvp.html">PvP</a><a href="survival.html" class="active">Survival</a>
+    <button class="nav-add-btn" onclick="openModal()">+ Add Server</button>
   </div>
 </nav>
-
 <div class="page-hero">
   <span class="page-hero-icon">🌲</span>
   <h1>Survival Servers</h1>
   <p>Build, explore, survive — no premium needed</p>
+  <div class="page-stat"><div class="ps"><div class="ps-n" id="sv-count">—</div><div class="ps-l">Servers</div></div></div>
 </div>
 
 <main>
-
-  <div class="note-box">
-    <div class="note-title">📖 How to Join (Bedrock / MCPE)</div>
-    <p class="note-text">
-      Open Minecraft &rarr; <strong>Play</strong> &rarr; <strong>Servers</strong> &rarr; <strong>Add Server</strong><br/>
-      Server Address: <strong>CrownMc.Net</strong> &nbsp;&nbsp; Port: <strong>19132</strong><br/>
-      Works on MCPE, Windows 10/11, Xbox, PlayStation and Nintendo Switch!
-    </p>
-  </div>
-
-  <div class="sec-title">Listed Servers</div>
-
+  <!-- CrownMC Featured -->
+  <div class="sec-title">Featured Server</div>
   <div class="crown-card">
     <div class="crown-head">
       <div class="crown-icon">👑</div>
@@ -154,126 +190,79 @@ footer a{color:var(--accent);text-decoration:none;}
         </div>
       </div>
       <div class="status-badge" id="status-badge">
-        <div class="dot checking" id="status-dot"></div>
-        <span class="status-text checking" id="status-text">Checking...</span>
+        <div class="dot checking" id="crown-dot"></div>
+        <span class="status-text checking" id="crown-status">Checking...</span>
       </div>
     </div>
-
     <div class="crown-body">
-      <p class="crown-desc">
-        CrownMC is a popular cracked Bedrock survival server. No premium account required — join with any username and start playing right away. Explore, build, survive and grow your legacy alongside other players!
-      </p>
-
+      <p class="crown-desc">CrownMC is a popular cracked Bedrock survival server. No premium account required — join with any username and start playing right away!</p>
       <div class="info-grid">
-        <div class="info-box">
-          <div class="info-label">Server IP</div>
-          <div class="info-value ip">CrownMc.Net</div>
-        </div>
-        <div class="info-box">
-          <div class="info-label">Port</div>
-          <div class="info-value gold">19132</div>
-        </div>
-        <div class="info-box">
-          <div class="info-label">Platform</div>
-          <div class="info-value" style="font-size:16px;">Bedrock / MCPE</div>
-        </div>
-        <div class="info-box">
-          <div class="info-label">Players Online</div>
-          <div class="info-value green" id="player-count">Loading...</div>
-        </div>
+        <div class="info-box"><div class="info-label">Server IP</div><div class="info-value ip">CrownMc.Net</div></div>
+        <div class="info-box"><div class="info-label">Port</div><div class="info-value gold">19132</div></div>
+        <div class="info-box"><div class="info-label">Platform</div><div class="info-value" style="font-size:15px">Bedrock / MCPE</div></div>
+        <div class="info-box"><div class="info-label">Players Online</div><div class="info-value green" id="crown-players">Loading...</div></div>
       </div>
-
       <div class="players-section">
-        <div class="players-label">
-          <span>Server Capacity</span>
-          <span class="count" id="capacity-text">—</span>
-        </div>
-        <div class="pbar"><div class="pbar-fill" id="pbar-fill" style="width:0%"></div></div>
+        <div class="players-label"><span>Server Capacity</span><span class="count" id="crown-cap">—</span></div>
+        <div class="pbar"><div class="pbar-fill" id="crown-bar" style="width:0%"></div></div>
       </div>
     </div>
-
     <div class="crown-foot">
-      <button class="copy-btn" id="copy-ip-btn" onclick="copyIP()">👑 Copy IP</button>
-      <button class="copy-port-btn" id="copy-port-btn" onclick="copyPort()">Copy Port: 19132</button>
+      <button class="crown-copy" id="copy-ip" onclick="crownCopy('ip')">👑 Copy IP — CrownMc.Net</button>
+      <button class="crown-copy" id="copy-port" onclick="crownCopy('port')" style="flex:0;min-width:140px">Copy Port: 19132</button>
     </div>
   </div>
 
+  <!-- Community Survival Servers -->
+  <div class="sec-title">
+    Community Survival Servers
+    <button onclick="openModal()" style="font-family:var(--px);font-size:6px;padding:6px 10px;background:rgba(39,174,96,.08);color:var(--accent);border:2px solid var(--accent);border-radius:2px;cursor:pointer;margin-left:auto;transition:all .15s;" onmouseover="this.style.background='var(--accent)';this.style.color='#fff'" onmouseout="this.style.background='rgba(39,174,96,.08)';this.style.color='var(--accent)'">+ Add Server</button>
+  </div>
+  <div class="server-grid" id="server-grid"><div class="loading-state"><span>Loading servers...</span></div></div>
 </main>
 
-<footer>
-  &copy; 2025 Best Minecraft Cracked Servers &nbsp;|&nbsp;
-  <a href="index.html">Home</a> &nbsp;|&nbsp;
-  <a href="lifesteal.html">Lifesteal</a> &nbsp;|&nbsp;
-  <a href="pvp.html">PvP</a>
-</footer>
+<footer>&copy; 2025 Best Minecraft Cracked Servers &nbsp;|&nbsp;<a href="index.html">Home</a> &nbsp;|&nbsp;<a href="lifesteal.html">Lifesteal</a> &nbsp;|&nbsp;<a href="pvp.html">PvP</a></footer>
+
+<div class="modal-overlay" id="modal-overlay" onclick="handleOverlayClick(event)">
+  <div class="modal">
+    <div class="modal-head"><div class="modal-title">+ Submit Survival Server</div><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-body">
+      <div class="form-group"><label class="form-label">Server Name <span class="req">*</span></label><input class="form-input" id="f-name" type="text" placeholder="e.g. SurvivalCraft SMP" maxlength="40"/><div class="error-msg" id="err-name">Please enter a server name.</div></div>
+      <div class="form-group"><label class="form-label">Server Logo <span class="opt">(optional)</span></label><div class="logo-upload-wrap"><div class="logo-preview" id="logo-preview">🌲</div><div><input type="file" id="logo-file" accept="image/*" style="display:none" onchange="handleLogoUpload(event)"/><button class="logo-upload-btn" onclick="document.getElementById('logo-file').click()">Upload Image</button><div class="hint">PNG or JPG recommended</div></div></div></div>
+      <div class="row2" style="margin-bottom:16px"><div class="form-group" style="margin-bottom:0"><label class="form-label">Server IP <span class="req">*</span></label><input class="form-input" id="f-ip" type="text" placeholder="play.example.net"/><div class="error-msg" id="err-ip">Please enter the server IP.</div></div><div class="form-group" style="margin-bottom:0"><label class="form-label">Port <span class="opt">(optional)</span></label><input class="form-input" id="f-port" type="text" placeholder="19132 / 25565" maxlength="10"/></div></div>
+      <div class="form-group"><label class="form-label">Platform <span class="req">*</span></label><select class="form-select" id="f-platform"><option value="">— Select platform —</option><option value="Bedrock / MCPE">Bedrock / MCPE</option><option value="Java Edition">Java Edition</option><option value="Java + Bedrock">Java + Bedrock</option></select><div class="error-msg" id="err-platform">Please select a platform.</div></div>
+      <div class="form-group"><label class="form-label">Description <span class="req">*</span></label><textarea class="form-textarea" id="f-desc" placeholder="Tell players what makes your server special..." maxlength="200"></textarea><div style="font-family:var(--px);font-size:5px;color:var(--muted);margin-top:4px;text-align:right"><span id="desc-count">0</span>/200</div><div class="error-msg" id="err-desc">Please add a description.</div></div>
+      <button class="form-submit" id="submit-btn" onclick="submitServer()">🌲 ADD TO SURVIVAL LIST</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
 
 <script>
-function copyIP(){
-  const btn = document.getElementById('copy-ip-btn');
-  navigator.clipboard.writeText('CrownMc.Net').then(()=>{
-    btn.textContent='✔ IP Copied!'; btn.classList.add('copied');
-    setTimeout(()=>{ btn.textContent='👑 Copy IP'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-function copyPort(){
-  const btn = document.getElementById('copy-port-btn');
-  navigator.clipboard.writeText('19132').then(()=>{
-    btn.textContent='✔ Copied!'; btn.classList.add('copied');
-    setTimeout(()=>{ btn.textContent='Copy Port: 19132'; btn.classList.remove('copied'); }, 2000);
-  });
-}
-
-async function checkCrownMC(){
-  const dot = document.getElementById('status-dot');
-  const statusText = document.getElementById('status-text');
-  const playerCount = document.getElementById('player-count');
-  const capacityText = document.getElementById('capacity-text');
-  const pbarFill = document.getElementById('pbar-fill');
-
-  try {
-    const res = await fetch('https://api.mcsrvstat.us/bedrock/3/CrownMc.Net');
-    const data = await res.json();
-
-    if(data.online){
-      dot.className = 'dot online';
-      statusText.className = 'status-text online';
-      statusText.textContent = 'Online';
-
-      const online = data.players?.online;
-      const max = data.players?.max;
-
-      if(online !== undefined){
-        playerCount.textContent = online + (max ? ' / ' + max : '');
-        if(max && max > 0){
-          const pct = Math.min(100, Math.round((online / max) * 100));
-          capacityText.textContent = pct + '%';
-          pbarFill.style.width = pct + '%';
-        }
-      } else {
-        playerCount.textContent = 'Online';
-        capacityText.textContent = '—';
-        pbarFill.style.width = '50%';
-      }
-    } else {
-      dot.className = 'dot offline';
-      statusText.className = 'status-text offline';
-      statusText.textContent = 'Offline';
-      playerCount.textContent = 'Server offline';
-      playerCount.style.color = '#e74c3c';
-      capacityText.textContent = '0%';
-      pbarFill.style.width = '0%';
-      pbarFill.style.background = '#e74c3c';
-    }
-  } catch(err) {
-    dot.className = 'dot offline';
-    statusText.className = 'status-text offline';
-    statusText.textContent = 'Cannot reach';
-    playerCount.textContent = 'Could not fetch';
-  }
-}
-
-checkCrownMC();
-setInterval(checkCrownMC, 60000);
+const BIN_ID='69b035036a0858658be219f6';
+const API_KEY='$2a$10$vGeDCVNg6iIWCsYvNUyUeOO/frMWZxna.VvB/NKzd0G/GdK1EzqMO';
+const BIN_URL=`https://api.jsonbin.io/v3/b/${BIN_ID}`;
+const HEADERS={'Content-Type':'application/json','X-Master-Key':API_KEY};
+let logoDataUrl=null;
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+async function fetchServers(){try{const r=await fetch(BIN_URL+'/latest',{headers:{'X-Master-Key':API_KEY}});const d=await r.json();return d.record?.servers||[];}catch(e){return[];}}
+async function saveServers(arr){await fetch(BIN_URL,{method:'PUT',headers:HEADERS,body:JSON.stringify({servers:arr})});}
+function buildCard(s,i){const logo=s.logo?`<img src="${s.logo}" alt=""/>` :'🌲';const port=s.port||'';return `<div class="srv-card"><div class="top-bar"></div><div class="srv-head"><div class="srv-logo">${logo}</div><div class="srv-info"><div class="srv-name">${esc(s.name)}</div><div class="srv-tags"><span class="tag gm-survival">🌲 Survival</span><span class="tag cracked">Cracked</span>${s.platform?`<span class="tag platform">${esc(s.platform)}</span>`:''}</div></div><div class="srv-dot checking" id="dot-${i}"></div></div><div class="srv-body"><p class="srv-desc">${esc(s.desc)}</p><div class="srv-meta"><div class="meta"><div class="meta-l">Server IP</div><div class="meta-v ip">${esc(s.ip)}</div></div><div class="meta"><div class="meta-l">Port</div><div class="meta-v">${esc(port||'Default')}</div></div><div class="meta"><div class="meta-l">Platform</div><div class="meta-v" style="font-size:13px">${esc(s.platform||'—')}</div></div><div class="meta"><div class="meta-l">Players</div><div class="meta-v green" id="pl-${i}">Checking...</div></div></div></div><div class="srv-foot"><button class="copy-btn" onclick="copyIP(this,'${esc(s.ip)}')">Copy IP</button><div class="pbar-wrap"><div class="pbar-top"><span>Capacity</span><span id="cap-${i}">—</span></div><div class="pbar2"><div class="pbar2-fill" id="pb-${i}" style="width:0%"></div></div></div></div></div>`;}
+function renderGrid(servers){const filtered=servers.filter(s=>s.gamemode==='survival');const el=document.getElementById('sv-count');if(el)el.textContent=filtered.length+1;// +1 for CrownMC
+const grid=document.getElementById('server-grid');if(filtered.length===0){grid.innerHTML=`<div class="empty-state"><span class="empty-icon">📭</span><div class="empty-text">No community survival servers yet.<br/>Be the first to add one!</div><button class="empty-btn" onclick="openModal()">+ Add Survival Server</button></div>`;return;}grid.innerHTML=filtered.map((s,i)=>buildCard(s,i)).join('');filtered.forEach((s,i)=>pingServer(s.ip,s.port,i));}
+async function pingServer(ip,port,i){const dot=document.getElementById('dot-'+i),plEl=document.getElementById('pl-'+i),capEl=document.getElementById('cap-'+i),pbEl=document.getElementById('pb-'+i);if(!dot)return;const isBedrock=String(port)==='19132';const url=isBedrock?`https://api.mcsrvstat.us/bedrock/3/${ip}`:`https://api.mcsrvstat.us/3/${ip}${port&&port!=='25565'?':'+port:''}`;try{const r=await fetch(url);const d=await r.json();if(d.online){dot.className='srv-dot on';const on=d.players?.online??'?',mx=d.players?.max??'?';if(plEl)plEl.textContent=on+' / '+mx;if(typeof on==='number'&&typeof mx==='number'&&mx>0&&capEl&&pbEl){const p=Math.min(100,Math.round(on/mx*100));capEl.textContent=p+'%';pbEl.style.width=p+'%';}}else{dot.className='srv-dot off';if(plEl){plEl.textContent='Offline';plEl.className='meta-v red';}if(capEl)capEl.textContent='0%';if(pbEl){pbEl.style.width='0%';pbEl.style.background='#e74c3c';}}}catch(e){if(dot)dot.className='srv-dot off';if(plEl)plEl.textContent='N/A';}}
+// CrownMC
+async function checkCrown(){const dot=document.getElementById('crown-dot'),st=document.getElementById('crown-status'),pl=document.getElementById('crown-players'),cap=document.getElementById('crown-cap'),bar=document.getElementById('crown-bar');try{const r=await fetch('https://api.mcsrvstat.us/bedrock/3/CrownMc.Net');const d=await r.json();if(d.online){dot.className='dot online';st.className='status-text online';st.textContent='Online';const on=d.players?.online??'?',mx=d.players?.max??'?';if(pl)pl.textContent=on+' / '+mx;if(typeof on==='number'&&typeof mx==='number'&&mx>0){const p=Math.min(100,Math.round(on/mx*100));cap.textContent=p+'%';bar.style.width=p+'%';}}else{dot.className='dot offline';st.className='status-text offline';st.textContent='Offline';if(pl){pl.textContent='Server offline';pl.style.color='#e74c3c';}cap.textContent='0%';bar.style.width='0%';bar.style.background='#e74c3c';}}catch(e){dot.className='dot offline';st.textContent='N/A';}}
+function crownCopy(type){const btn=document.getElementById(type==='ip'?'copy-ip':'copy-port');const text=type==='ip'?'CrownMc.Net':'19132';const orig=type==='ip'?'👑 Copy IP — CrownMc.Net':'Copy Port: 19132';navigator.clipboard.writeText(text).then(()=>{btn.textContent='✔ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent=orig;btn.classList.remove('copied');},2000);});}
+function copyIP(btn,ip){navigator.clipboard.writeText(ip).then(()=>{btn.textContent='✔ Copied!';btn.classList.add('copied');setTimeout(()=>{btn.textContent='Copy IP';btn.classList.remove('copied');},2000);});}
+function openModal(){document.getElementById('modal-overlay').classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(){document.getElementById('modal-overlay').classList.remove('open');document.body.style.overflow='';}
+function handleOverlayClick(e){if(e.target===document.getElementById('modal-overlay'))closeModal();}
+function handleLogoUpload(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=ev=>{logoDataUrl=ev.target.result;document.getElementById('logo-preview').innerHTML=`<img src="${logoDataUrl}"/>`;};r.readAsDataURL(f);}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000);}
+document.getElementById('f-desc').addEventListener('input',function(){document.getElementById('desc-count').textContent=this.value.length;});
+async function submitServer(){document.querySelectorAll('.error-msg').forEach(e=>e.style.display='none');const name=document.getElementById('f-name').value.trim(),ip=document.getElementById('f-ip').value.trim(),port=document.getElementById('f-port').value.trim(),platform=document.getElementById('f-platform').value,desc=document.getElementById('f-desc').value.trim();let ok=true;if(!name){document.getElementById('err-name').style.display='block';ok=false;}if(!ip){document.getElementById('err-ip').style.display='block';ok=false;}if(!platform){document.getElementById('err-platform').style.display='block';ok=false;}if(!desc){document.getElementById('err-desc').style.display='block';ok=false;}if(!ok)return;const btn=document.getElementById('submit-btn');btn.disabled=true;btn.textContent='Saving...';try{const current=await fetchServers();current.unshift({name,ip,port,platform,gamemode:'survival',desc,logo:logoDataUrl,addedAt:Date.now()});await saveServers(current);closeModal();showToast('✔ Server added! Everyone can see it now.');location.reload();}catch(e){showToast('Error saving. Please try again.');}btn.disabled=false;btn.textContent='🌲 ADD TO SURVIVAL LIST';}
+(async()=>{checkCrown();const servers=await fetchServers();renderGrid(servers);})();
 </script>
 </body>
 </html>
