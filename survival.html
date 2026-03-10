@@ -1,94 +1,279 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Survival Servers</title>
-
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Best Minecraft Cracked Servers — Survival</title>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet"/>
 <style>
-
-body{
-font-family:Arial;
-background:#020617;
-color:white;
-text-align:center;
-padding-top:100px;
+:root{
+  --grass:#4CAF50;--grass-bright:#6FCF3F;--grass-dark:#2d6a2f;
+  --gold:#FFD700;--crown:#FFD700;--crown-dark:#7a6000;
+  --bg:#111;--card:#1c1c1c;--border:#2a2a2a;
+  --text:#e8e8e8;--muted:#888;
+  --accent:#27ae60;--accent-dark:#0f4a28;
+  --px:'Press Start 2P',monospace;--vt:'VT323',monospace;--body:'Outfit',sans-serif;
 }
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px),
+    repeating-linear-gradient(90deg,transparent,transparent 31px,rgba(255,255,255,.018) 32px);
+  background-size:32px 32px;}
 
-h1{
-color:#22c55e;
+nav{position:sticky;top:0;z-index:999;background:rgba(10,10,10,.97);border-bottom:3px solid var(--accent-dark);backdrop-filter:blur(10px);padding:0 20px;display:flex;align-items:center;justify-content:space-between;height:64px;}
+.nav-logo{font-family:var(--px);font-size:9px;color:var(--grass-bright);text-shadow:2px 2px 0 var(--grass-dark);text-decoration:none;line-height:1.7;}
+.nav-logo span{color:var(--gold);text-shadow:2px 2px 0 #7a6000;}
+.nav-links{display:flex;gap:6px;}
+.nav-links a{font-family:var(--px);font-size:7px;padding:8px 10px;border:2px solid transparent;border-radius:2px;text-decoration:none;color:var(--muted);transition:all .15s;}
+.nav-links a:hover{color:#fff;border-color:var(--accent);background:rgba(39,174,96,.1);}
+.nav-links a.active{color:var(--accent);border-color:var(--accent);background:rgba(39,174,96,.1);}
+
+.page-hero{position:relative;text-align:center;padding:55px 20px 48px;background:linear-gradient(180deg,#071a07 0%,#0a1a0a 60%,var(--bg) 100%);overflow:hidden;}
+.page-hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:8px;background:repeating-linear-gradient(90deg,var(--grass) 0,var(--grass) 16px,var(--grass-bright) 16px,var(--grass-bright) 32px,var(--grass-dark) 32px,var(--grass-dark) 48px);}
+.page-hero-icon{font-size:46px;display:block;margin-bottom:14px;animation:sway 3s ease-in-out infinite;filter:drop-shadow(0 0 18px rgba(39,174,96,.6));}
+@keyframes sway{0%,100%{transform:rotate(-5deg) translateY(0)}50%{transform:rotate(5deg) translateY(-6px)}}
+.page-hero h1{font-family:var(--px);font-size:clamp(13px,3vw,22px);color:var(--grass-bright);text-shadow:4px 4px 0 var(--accent-dark),0 0 30px rgba(39,174,96,.3);margin-bottom:8px;}
+.page-hero p{font-family:var(--vt);font-size:21px;color:var(--muted);}
+
+main{max-width:860px;margin:0 auto;padding:44px 20px 80px;position:relative;z-index:1;}
+.sec-title{font-family:var(--px);font-size:10px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px;}
+.sec-title::after{content:'';flex:1;height:2px;background:linear-gradient(90deg,var(--accent-dark),transparent);}
+
+.note-box{background:rgba(255,215,0,.05);border:2px solid var(--crown-dark);border-radius:4px;padding:16px 20px;margin-bottom:30px;}
+.note-title{font-family:var(--px);font-size:8px;color:var(--crown);margin-bottom:10px;}
+.note-text{font-size:14px;color:var(--muted);line-height:1.7;}
+.note-text strong{color:var(--crown);}
+
+/* Crown Card */
+.crown-card{background:var(--card);border:3px solid var(--crown-dark);border-radius:6px;overflow:hidden;transition:border-color .3s,box-shadow .3s;animation:fadeUp .5s ease both;position:relative;}
+.crown-card:hover{border-color:var(--crown);box-shadow:0 8px 40px rgba(255,215,0,.18);}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.crown-card::before{content:'';display:block;height:5px;background:linear-gradient(90deg,var(--crown-dark),var(--crown),#fff8c0,var(--crown),var(--crown-dark));background-size:200% 100%;animation:shimmer 2.5s linear infinite;}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+
+.crown-head{padding:26px 26px 18px;display:flex;align-items:center;gap:18px;border-bottom:2px solid #2a2a1a;background:linear-gradient(135deg,#1a1a0a,#1c1c10);flex-wrap:wrap;}
+.crown-icon{width:68px;height:68px;border-radius:6px;border:3px solid var(--crown-dark);background:#222208;font-size:34px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 16px rgba(255,215,0,.2);}
+.crown-info{flex:1;min-width:0;}
+.crown-name{font-family:var(--px);font-size:15px;color:var(--crown);text-shadow:3px 3px 0 var(--crown-dark),0 0 20px rgba(255,215,0,.4);margin-bottom:8px;}
+.crown-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.tag{font-family:var(--px);font-size:6px;padding:3px 8px;border-radius:1px;border:1px solid;}
+.tag.sv{color:var(--accent);border-color:var(--accent);background:rgba(39,174,96,.1);}
+.tag.cr{color:var(--gold);border-color:var(--gold);background:rgba(255,215,0,.08);}
+.tag.be{color:#5bc8ff;border-color:#3a8aaa;background:rgba(91,200,255,.08);}
+
+.status-badge{display:flex;align-items:center;gap:8px;padding:10px 16px;border:2px solid #333;border-radius:3px;background:#161616;flex-shrink:0;min-width:140px;justify-content:center;}
+.dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.dot.checking{background:var(--gold);animation:blink 1s ease-in-out infinite;}
+.dot.online{background:var(--grass-bright);box-shadow:0 0 10px var(--grass-bright);animation:blink 2s ease-in-out infinite;}
+.dot.offline{background:#e74c3c;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.status-text{font-family:var(--px);font-size:8px;}
+.status-text.checking{color:var(--gold);}
+.status-text.online{color:var(--grass-bright);}
+.status-text.offline{color:#e74c3c;}
+
+.crown-body{padding:24px 26px;}
+.crown-desc{font-size:15px;color:var(--muted);line-height:1.6;margin-bottom:22px;}
+
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:22px;}
+.info-box{background:#161610;border:2px solid #2a2a18;border-radius:3px;padding:12px 14px;}
+.info-label{font-family:var(--px);font-size:6px;color:var(--muted);letter-spacing:1px;text-transform:uppercase;margin-bottom:5px;}
+.info-value{font-family:var(--vt);font-size:20px;color:#fff;}
+.info-value.gold{color:var(--crown);font-size:22px;}
+.info-value.green{color:var(--grass-bright);}
+.info-value.ip{font-size:17px;color:var(--crown);}
+
+.players-section{margin-bottom:4px;}
+.players-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;}
+.players-label span{font-family:var(--px);font-size:6px;color:var(--muted);}
+.players-label .count{color:var(--crown);font-size:7px;}
+.pbar{height:8px;background:#2a2a18;border-radius:2px;overflow:hidden;border:1px solid #3a3a20;}
+.pbar-fill{height:100%;background:linear-gradient(90deg,var(--crown-dark),var(--crown));border-radius:2px;transition:width 1s ease;}
+
+.crown-foot{padding:18px 26px;background:#161610;border-top:2px solid #2a2a18;display:flex;gap:12px;flex-wrap:wrap;align-items:center;}
+.copy-btn{font-family:var(--px);font-size:8px;padding:12px 20px;background:var(--crown-dark);color:var(--crown);border:2px solid var(--crown);border-radius:2px;cursor:pointer;transition:all .15s;flex:1;min-width:140px;text-align:center;}
+.copy-btn:hover{background:var(--crown);color:#000;}
+.copy-btn.copied{background:var(--grass-bright);color:#000;border-color:var(--grass-bright);}
+.copy-port-btn{font-family:var(--px);font-size:8px;padding:12px 20px;background:#1a1a0a;color:var(--muted);border:2px solid #333;border-radius:2px;cursor:pointer;transition:all .15s;min-width:140px;text-align:center;}
+.copy-port-btn:hover{border-color:var(--crown);color:var(--crown);}
+.copy-port-btn.copied{background:var(--crown-dark);color:var(--crown);border-color:var(--crown);}
+
+footer{text-align:center;padding:24px 20px;border-top:4px solid;border-image:repeating-linear-gradient(90deg,var(--grass) 0,var(--grass) 16px,var(--grass-bright) 16px,var(--grass-bright) 32px,var(--grass-dark) 32px,var(--grass-dark) 48px) 1;font-family:var(--px);font-size:7px;color:var(--muted);letter-spacing:1px;}
+footer a{color:var(--accent);text-decoration:none;}
+
+@media(max-width:620px){
+  .crown-head{gap:12px;}
+  .status-badge{width:100%;}
+  .info-grid{grid-template-columns:1fr 1fr;}
+  .crown-foot{flex-direction:column;}
+  .copy-btn,.copy-port-btn{width:100%;}
 }
-
-.server{
-background:#1e293b;
-padding:25px;
-margin:40px auto;
-width:320px;
-border-radius:12px;
-box-shadow:0 0 15px rgba(0,0,0,0.6);
-}
-
-.servername{
-color:yellow;
-font-size:26px;
-}
-
-.ip{
-margin-top:10px;
-font-size:18px;
-}
-
-button{
-margin-top:15px;
-padding:10px 20px;
-background:#22c55e;
-border:none;
-border-radius:8px;
-color:white;
-font-size:16px;
-cursor:pointer;
-transition:0.3s;
-}
-
-button:hover{
-transform:scale(1.1);
-}
-
-a{
-color:#22c55e;
-text-decoration:none;
-font-size:18px;
-}
-
 </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">Best Minecraft<br/><span>Cracked Servers</span></a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="lifesteal.html">Lifesteal</a>
+    <a href="pvp.html">PvP</a>
+    <a href="survival.html" class="active">Survival</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <span class="page-hero-icon">🌲</span>
+  <h1>Survival Servers</h1>
+  <p>Build, explore, survive — no premium needed</p>
+</div>
+
+<main>
+
+  <div class="note-box">
+    <div class="note-title">📖 How to Join (Bedrock / MCPE)</div>
+    <p class="note-text">
+      Open Minecraft &rarr; <strong>Play</strong> &rarr; <strong>Servers</strong> &rarr; <strong>Add Server</strong><br/>
+      Server Address: <strong>CrownMc.Net</strong> &nbsp;&nbsp; Port: <strong>19132</strong><br/>
+      Works on MCPE, Windows 10/11, Xbox, PlayStation and Nintendo Switch!
+    </p>
+  </div>
+
+  <div class="sec-title">Listed Servers</div>
+
+  <div class="crown-card">
+    <div class="crown-head">
+      <div class="crown-icon">👑</div>
+      <div class="crown-info">
+        <div class="crown-name">CrownMC</div>
+        <div class="crown-tags">
+          <span class="tag sv">Survival</span>
+          <span class="tag be">Bedrock</span>
+          <span class="tag cr">Cracked</span>
+        </div>
+      </div>
+      <div class="status-badge" id="status-badge">
+        <div class="dot checking" id="status-dot"></div>
+        <span class="status-text checking" id="status-text">Checking...</span>
+      </div>
+    </div>
+
+    <div class="crown-body">
+      <p class="crown-desc">
+        CrownMC is a popular cracked Bedrock survival server. No premium account required — join with any username and start playing right away. Explore, build, survive and grow your legacy alongside other players!
+      </p>
+
+      <div class="info-grid">
+        <div class="info-box">
+          <div class="info-label">Server IP</div>
+          <div class="info-value ip">CrownMc.Net</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Port</div>
+          <div class="info-value gold">19132</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Platform</div>
+          <div class="info-value" style="font-size:16px;">Bedrock / MCPE</div>
+        </div>
+        <div class="info-box">
+          <div class="info-label">Players Online</div>
+          <div class="info-value green" id="player-count">Loading...</div>
+        </div>
+      </div>
+
+      <div class="players-section">
+        <div class="players-label">
+          <span>Server Capacity</span>
+          <span class="count" id="capacity-text">—</span>
+        </div>
+        <div class="pbar"><div class="pbar-fill" id="pbar-fill" style="width:0%"></div></div>
+      </div>
+    </div>
+
+    <div class="crown-foot">
+      <button class="copy-btn" id="copy-ip-btn" onclick="copyIP()">👑 Copy IP</button>
+      <button class="copy-port-btn" id="copy-port-btn" onclick="copyPort()">Copy Port: 19132</button>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2025 Best Minecraft Cracked Servers &nbsp;|&nbsp;
+  <a href="index.html">Home</a> &nbsp;|&nbsp;
+  <a href="lifesteal.html">Lifesteal</a> &nbsp;|&nbsp;
+  <a href="pvp.html">PvP</a>
+</footer>
 
 <script>
 function copyIP(){
-navigator.clipboard.writeText("crownmc.net:19132");
-alert("IP Copied!");
+  const btn = document.getElementById('copy-ip-btn');
+  navigator.clipboard.writeText('CrownMc.Net').then(()=>{
+    btn.textContent='✔ IP Copied!'; btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='👑 Copy IP'; btn.classList.remove('copied'); }, 2000);
+  });
 }
+function copyPort(){
+  const btn = document.getElementById('copy-port-btn');
+  navigator.clipboard.writeText('19132').then(()=>{
+    btn.textContent='✔ Copied!'; btn.classList.add('copied');
+    setTimeout(()=>{ btn.textContent='Copy Port: 19132'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+
+async function checkCrownMC(){
+  const dot = document.getElementById('status-dot');
+  const statusText = document.getElementById('status-text');
+  const playerCount = document.getElementById('player-count');
+  const capacityText = document.getElementById('capacity-text');
+  const pbarFill = document.getElementById('pbar-fill');
+
+  try {
+    const res = await fetch('https://api.mcsrvstat.us/bedrock/3/CrownMc.Net');
+    const data = await res.json();
+
+    if(data.online){
+      dot.className = 'dot online';
+      statusText.className = 'status-text online';
+      statusText.textContent = 'Online';
+
+      const online = data.players?.online;
+      const max = data.players?.max;
+
+      if(online !== undefined){
+        playerCount.textContent = online + (max ? ' / ' + max : '');
+        if(max && max > 0){
+          const pct = Math.min(100, Math.round((online / max) * 100));
+          capacityText.textContent = pct + '%';
+          pbarFill.style.width = pct + '%';
+        }
+      } else {
+        playerCount.textContent = 'Online';
+        capacityText.textContent = '—';
+        pbarFill.style.width = '50%';
+      }
+    } else {
+      dot.className = 'dot offline';
+      statusText.className = 'status-text offline';
+      statusText.textContent = 'Offline';
+      playerCount.textContent = 'Server offline';
+      playerCount.style.color = '#e74c3c';
+      capacityText.textContent = '0%';
+      pbarFill.style.width = '0%';
+      pbarFill.style.background = '#e74c3c';
+    }
+  } catch(err) {
+    dot.className = 'dot offline';
+    statusText.className = 'status-text offline';
+    statusText.textContent = 'Cannot reach';
+    playerCount.textContent = 'Could not fetch';
+  }
+}
+
+checkCrownMC();
+setInterval(checkCrownMC, 60000);
 </script>
-
-</head>
-
-<body>
-
-<h1>🌲 Survival Servers</h1>
-
-<div class="server">
-
-<div class="servername">👑 CrownMC</div>
-
-<div class="ip">
-IP: crownmc.net<br>
-Port: 19132
-</div>
-
-<button onclick="copyIP()">📋 Copy IP</button>
-
-</div>
-
-<br>
-
-<a href="index.html">⬅ Back</a>
-
 </body>
 </html>
