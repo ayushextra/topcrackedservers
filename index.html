@@ -1,64 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Minecraft Cracked Servers</title>
 
 <style>
-
+/* ===== Body & Background ===== */
 body{
-margin:0;
-font-family:Arial;
-background:linear-gradient(135deg,#020617,#0f172a);
-color:white;
-text-align:center;
+  margin:0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg,#0f172a,#020617);
+  color:white;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  justify-content:center;
 }
 
+/* ===== Title ===== */
 h1{
-margin-top:120px;
-font-size:45px;
-animation: glow 2s infinite alternate;
+  font-size:50px;
+  margin-bottom:50px;
+  text-align:center;
+  color:#22c55e;
+  text-shadow: 0 0 15px rgba(34,197,94,0.7);
+  animation: glow 2s infinite alternate;
 }
 
 @keyframes glow{
-from{ text-shadow:0 0 10px #22c55e;}
-to{ text-shadow:0 0 25px #22c55e;}
+  0% {text-shadow:0 0 10px rgba(34,197,94,0.5);}
+  100% {text-shadow:0 0 25px rgba(34,197,94,1);}
 }
 
+/* ===== Buttons ===== */
 .container{
-margin-top:60px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:25px;
 }
 
 .button{
-display:block;
-width:260px;
-margin:25px auto;
-padding:18px;
-font-size:22px;
-text-decoration:none;
-border-radius:12px;
-color:white;
-transition:0.3s;
-}
-
-.lifesteal{
-background:#ef4444;
-}
-
-.survival{
-background:#22c55e;
-}
-
-.pvp{
-background:#3b82f6;
+  width:280px;
+  padding:18px;
+  font-size:22px;
+  border:none;
+  border-radius:15px;
+  cursor:pointer;
+  transition:0.4s;
+  font-weight:bold;
+  color:white;
+  text-align:center;
+  background: linear-gradient(45deg,#22c55e,#16a34a);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
 .button:hover{
-transform:scale(1.1);
-box-shadow:0 0 25px rgba(255,255,255,0.4);
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
 }
 
-.icon{
-margin-right:10px;
+.button.lifesteal{ background: linear-gradient(45deg,#ef4444,#b91c1c); }
+.button.survival{ background: linear-gradient(45deg,#22c55e,#16a34a); }
+.button.pvp{ background: linear-gradient(45deg,#3b82f6,#1e40af); }
+
+/* ===== Settings Button ===== */
+.settings{
+  position: absolute;
+  top:20px;
+  right:20px;
+  background:#1e293b;
+  padding:10px 15px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  transition:0.3s;
+}
+
+.settings:hover{
+  background:#334155;
+}
+
+.dropdown{
+  display:none;
+  position:absolute;
+  top:50px;
+  right:0;
+  background:#1e293b;
+  border-radius:10px;
+  min-width:150px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.4);
+  flex-direction:column;
+  z-index:100;
+}
+
+.dropdown a{
+  color:white;
+  text-decoration:none;
+  padding:10px 15px;
+  transition:0.3s;
+}
+
+.dropdown a:hover{
+  background:#334155;
+}
+
+/* ===== Discord Icon ===== */
+.discord{
+  position: absolute;
+  bottom:20px;
+  right:20px;
+  width:50px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.discord:hover{
+  transform: scale(1.2);
 }
 
 </style>
@@ -66,23 +126,43 @@ margin-right:10px;
 
 <body>
 
-<h1>🎮 Top Cracked Minecraft Servers</h1>
+<h1>Minecraft Cracked Servers</h1>
 
 <div class="container">
-
-<a class="button lifesteal" href="lifesteal.html">
-<span class="icon">❤️</span> Lifesteal Servers
-</a>
-
-<a class="button survival" href="survival.html">
-<span class="icon">🌲</span> Survival Servers
-</a>
-
-<a class="button pvp" href="pvp.html">
-<span class="icon">⚔️</span> PvP Servers
-</a>
-
+  <button class="button lifesteal" onclick="alert('Coming Soon 🚧')">Lifesteal Servers</button>
+  <button class="button survival" onclick="window.location.href='survival.html'">Survival Servers</button>
+  <button class="button pvp" onclick="alert('Coming Soon 🚧')">PvP Servers</button>
 </div>
+
+<!-- Settings Button -->
+<div class="settings" onclick="toggleDropdown()">⚙️ Settings
+  <div class="dropdown" id="settingsDropdown">
+    <a href="#">Option 1</a>
+    <a href="#">Option 2</a>
+    <a href="#">Option 3</a>
+  </div>
+</div>
+
+<!-- Discord Icon -->
+<a href="https://discord.gg/8gTQUH3V7Y" target="_blank">
+  <img class="discord" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Discord_logo.svg" alt="Discord">
+</a>
+
+<script>
+function toggleDropdown(){
+  const dropdown = document.getElementById('settingsDropdown');
+  dropdown.style.display = (dropdown.style.display === 'flex') ? 'none' : 'flex';
+}
+
+// Click outside to close dropdown
+window.onclick = function(event){
+  const dropdown = document.getElementById('settingsDropdown');
+  const settingsBtn = document.querySelector('.settings');
+  if(!settingsBtn.contains(event.target)){
+    dropdown.style.display = 'none';
+  }
+}
+</script>
 
 </body>
 </html>
