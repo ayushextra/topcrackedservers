@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Survival Servers</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#020617;
+color:white;
+text-align:center;
+padding-top:100px;
+}
+
+h1{
+color:#22c55e;
+}
+
+.server{
+background:#1e293b;
+padding:25px;
+margin:40px auto;
+width:320px;
+border-radius:12px;
+box-shadow:0 0 15px rgba(0,0,0,0.6);
+}
+
+.servername{
+color:yellow;
+font-size:26px;
+}
+
+.ip{
+margin-top:10px;
+font-size:18px;
+}
+
+button{
+margin-top:15px;
+padding:10px 20px;
+background:#22c55e;
+border:none;
+border-radius:8px;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+a{
+color:#22c55e;
+text-decoration:none;
+font-size:18px;
+}
+
+</style>
+
+<script>
+function copyIP(){
+navigator.clipboard.writeText("crownmc.net:19132");
+alert("IP Copied!");
+}
+</script>
+
+</head>
+
+<body>
+
+<h1>🌲 Survival Servers</h1>
+
+<div class="server">
+
+<div class="servername">👑 CrownMC</div>
+
+<div class="ip">
+IP: crownmc.net<br>
+Port: 19132
+</div>
+
+<button onclick="copyIP()">📋 Copy IP</button>
+
+</div>
+
+<br>
+
+<a href="index.html">⬅ Back</a>
+
+</body>
+</html>
